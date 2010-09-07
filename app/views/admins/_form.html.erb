@@ -1,0 +1,27 @@
+<h3><%= @table.name %></h3>
+<% remote_form_for(:form_data, @form_data,
+       :url => {:controller=>'admins', :action => next_action, :table_name => @table.name, :id => @form_data},
+       :loading => 'Form.disable("#{@table.name}-form")', :complete => 'Form.enable("#{@table.name}-form")') do |f| %>
+  <table>
+    <% for column in @table.content_columns %>
+      <% if column.name == "updated_by" || column.name == "created_by" || column.name == "updated_at" || column.name == "created_at" %>
+      <% else %>
+        <tr>
+          <td><%= column.human_name %></td>
+          <td>
+            <% if column.type.to_s == "string" || column.type.to_s == "integer" %>
+              <%= text_field "form_data", column.name, :size => 40 %>
+            <% elsif column.type.to_s == "datetime" %>
+              <%= date_select 'form_data', column.name  %>
+            <% else %>
+              <td>Undefined Coulmn Type</td>
+            <% end %>
+          </td>
+          <td><%= column.type.to_s %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <%= submit_tag button_label, :class => "submit" %>
+<% end %>
+<%= link_to_remote "Cancel", :url => {:controller => 'admins', :action => "cancel", :table_name => @table.name} %>

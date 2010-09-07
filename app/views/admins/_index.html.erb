@@ -1,0 +1,24 @@
+<h2>Sample: Administration</h2>
+<h3>Table Maintenance</h3>
+<table border="1">
+  <tr>
+    <td width="250" valign=top>
+      <div id="maintenance-list">
+        <% $TYPE_TABLES.each do |table| %>
+          <li><%= check_box(table.name, "visible", :onclick=>"Element.toggle('"+table.name+"-form');")%>
+            <label for="<%= table.name %>_visible"><%= table.name %></label></li>
+        <% end %>
+      </div>
+    </td>
+    <td width="1000" valign=top>
+      <div id="maintenance-body">
+        <% $TYPE_TABLES.each do |table| %>
+          <div id="<%= table.name %>-form" style='display:none;'>
+            <% @table = Object.const_get(table.name) %>
+            <%= render :partial => 'list' %>
+	  </div>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>

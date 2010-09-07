@@ -1,0 +1,60 @@
+<table width="100%">
+  <tr class="table-header-row">
+    <td class="table-header-row" colspan=2 valign=top><b>Template:</b>
+      <b><span id="profile-header-name"><%=h @excel_upload.excel_template if @excel_upload.excel_template %></b>
+      | Status:<b><%=h (@excel_upload.status == "P")? "Processed" : "Not Processed Yet" %></b>
+      <% if @excel_upload.status == "P" %>
+       | Process Date:<b><%=h @excel_upload.updated_at if @excel_upload.updated_at %></b>
+      <% end %>
+    </td>
+    <td class="table-header-row" colspan=1 valign=top align=center>
+      <% if @excel_upload.status != "P" %>
+        <b><%= link_to_remote 'Process File', :url => {:action => "process_file", :id => @excel_upload.id} %></b>
+		&nbsp;|&nbsp;&nbsp;<%= link_to 'Exit', :action => :index %>
+      <% end %>
+    </td>
+  </tr>
+  <tr class="table-header-row">
+    <td class="table-header-row" colspan=3 valign=top>
+      <b><span id="profile-header-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <%=h @excel_upload.document.file.filename if @excel_upload.document? %></span></b>
+    </td></tr>
+
+  <tr><td colspan=3 valign=top><hr></td></tr>
+
+  <tr>
+    <td colspan=3 valign=top>
+    <div id="map-row-info">
+      <%= render :partial => "blank" %>
+    </div>
+    </td>
+  </tr>
+
+  <tr><td colspan=3 valign=top><hr></td></tr>
+
+  <tr>
+    <td  valign=top>
+      <h3>Excel File Columns</h3>
+      <div id="display-map">
+        <%= render :partial => "display_map" %>
+      </div>
+    </td>
+
+    <td  valign=top>
+      <div id="columns-info">
+        <%= render :partial => "blank" %>
+      </div>
+    </td>
+
+    <td width="200" height="132" VALIGN=top>
+      <center><h3>Database Tables</h3></center>
+        <ul list-style-type="none">
+           <% $TABLE_ARR.each do |table| %>
+		     <% @t = table.name %>
+             <li><%= link_to_remote @t, :url => {:action => :table_columns, :table_name => @t} %></li>
+           <% end %>
+        </ul>
+    </td>
+
+</tr>
+</table>

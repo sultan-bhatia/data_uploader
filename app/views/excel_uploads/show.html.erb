@@ -1,0 +1,26 @@
+<h2>Excel Upload Template Information</h2>
+<%= display_flashes %>
+<table class=tcap_table>
+  <tr><th>Template:</th><td><%=h @excel_upload.excel_template if @excel_upload.excel_template %></td></tr>
+  <tr><th>Status:</th><td><%=h (@excel_upload.status == "2")? "Processed" : "Not Processed Yet" %></td></tr>
+  <tr><th># of errors:</th><td><%=h @excel_upload.no_errors %></td></tr>
+  <tr><th>Notes:</th><td><%= @excel_upload.notes %></td></tr>
+  <% if @excel_upload.status == "2" %>
+    <tr><th>Process Date:</th><td><%=h @excel_upload.updated_at if @excel_upload.updated_at %></td></tr>
+  <% end %>
+  <tr><th>Excel File:</th><td><%=h @excel_upload.document.file.filename if @excel_upload.document? %></td></tr>
+</table>
+<table class="data_table" border="1" cellspacing="0">
+  <tr>
+    <th>Seq #</th>
+    <th>Excel Column</th>
+    <th>Database Table</th>
+    <th>Database Field</th>
+  </tr>
+  <%= render :partial => "column_info", :collection => @excel_columns %>
+</table>
+
+<br>
+<%= link_to 'Edit', edit_excel_upload_path(@excel_upload) %> |
+<%= link_to 'Back', excel_uploads_path %> |
+<%= link_to 'Map Data', :action => "map_data", :id => @excel_upload %></td>

@@ -1,0 +1,23 @@
+<h3><%= @table.name %></h3>
+<table class="data_table" cellspacing="0">
+  <tr>
+    <% order_clause = "" %>
+    <% for column in @table.content_columns %>
+      <th><%= column.human_name %>&nbsp;&nbsp;&nbsp;</th>
+      <% order_clause += ", " if order_clause != "" %>
+      <% order_clause += column.name %>
+    <% end %>
+  </tr>
+  <% @table_data = @table.find(:all, :order => order_clause) %>
+  <% for t in @table_data %>
+    <tr>
+      <% for column in @table.content_columns %>
+        <td><%=h t.send(column.name) %></td>
+      <% end %>
+      <td>&nbsp;&nbsp;&nbsp;</td>
+      <td><%= link_to_remote "Edit", :url => {:controller => 'admins', :action => "edit", :table_name => @table.name, :id => t.id} %> | 
+          <%= link_to_remote "Delete", :url => {:controller => 'admins', :action => "destroy", :table_name => @table.name, :id => t.id}, :confirm => 'Are you sure?' %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to_remote "New", :url => {:controller => 'admins', :action => "new", :table_name => @table.name} %>
