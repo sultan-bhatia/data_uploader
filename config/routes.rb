@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :data_uploads
+  map.resources :upload_templates
 
   # The priority is based upon order of creation: first created -> highest priority.
 

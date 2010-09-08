@@ -1,6 +1,6 @@
 require 'csv'
 
-class DataUploadsController < ApplicationController
+class UploadTemplatesController < ApplicationController
 
   def index
 
@@ -16,7 +16,7 @@ class DataUploadsController < ApplicationController
 
   def map_data
 
-    @upload_template = DataUpload.find(params[:id])
+    @upload_template = UploadTemplate.find(params[:id])
     @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
 
     respond_to do |format|
@@ -27,7 +27,7 @@ class DataUploadsController < ApplicationController
 
 
   def show
-    @upload_template = DataUpload.find(params[:id])
+    @upload_template = UploadTemplate.find(params[:id])
     @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
 
     respond_to do |format|

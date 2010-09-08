@@ -4,7 +4,7 @@
   <tr>
   </tr>
 
-<% @upload_templates.each do |upload_templates| %>
+<% @upload_templates.each do |upload_template| %>
   <tr>
     <td><b><%= upload_template.name %>&nbsp;&nbsp;|&nbsp;&nbsp;
         <%= (upload_template.status == "2")? "Processed" : "Not Processed Yet" %>
@@ -13,9 +13,9 @@
         <% end %>
         </b><br>
         <%= upload_template.document.file.filename %><td>
-    <td>&nbsp;&nbsp;<%= link_to 'Show', data_upload %></td>
-    <td>&nbsp;&nbsp;<%= link_to 'Edit', edit_data_upload_path(upload_template) %></td>
-    <td>&nbsp;&nbsp;<%= link_to 'Delete Template', data_upload, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Show', upload_template %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Edit', edit_upload_template_path(upload_template) %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Delete Template', upload_template, :confirm => 'Are you sure?', :method => :delete %></td>
     <td>&nbsp;&nbsp;<%= link_to 'Map Data', :action => "map_data", :id => upload_template %></td>
     <td>&nbsp;&nbsp;<%= link_to 'View File', :action => "view_file", :id => upload_template %></td>
   </tr>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Template', new_data_upload_path %>
+<%= link_to 'New Template', new_upload_template_path %>

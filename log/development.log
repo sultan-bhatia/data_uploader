@@ -664,3 +664,722 @@ Processing DataUploadsController#create to #<uploadtemplate:0x103a67e40> (for 12
   [4;35;1mDataColumn Create (0.2ms)[0m   [0mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 00:33:59', NULL, 18, '2010-09-08 00:33:59', 'work email', 1, NULL, NULL, 'none')[0m
   [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
 Completed in 159ms (View: 1, DB: 55) | 406 Not Acceptable [http://localhost/data_uploads.%23%3Cuploadtemplate:0x103a67e40%3E]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-09-07 23:40:34) [GET]
+Rendering template within layouts/application
+Rendering home/index
+
+ActionView::TemplateError (undefined method `upload_templates_path' for #<ActionView::Base:0x103a34900>) on line #5 of app/views/home/index.html.erb:
+2: <br>
+3: <%= link_to_remote "Administration", :url => {:controller => :admins, :action => :index, :method => :get} %>
+4: <br><br>
+5: <%= link_to "Data Uploader", :upload_templates %>
+
+    app/views/home/index.html.erb:5
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-09-07 23:55:04) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 18ms (View: 15, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-07 23:55:04) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-07 23:55:10) [GET]
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+
+ActionView::TemplateError (undefined local variable or method `upload_template' for #<ActionView::Base:0x103c4d728>) on line #9 of app/views/upload_templates/index.html.erb:
+6: 
+7: <% @upload_templates.each do |upload_templates| %>
+8:   <tr>
+9:     <td><b><%= upload_template.name %>&nbsp;&nbsp;|&nbsp;&nbsp;
+10:         <%= (upload_template.status == "2")? "Processed" : "Not Processed Yet" %>
+11:         <% if upload_template.no_errors && upload_template.no_errors > 0  %>
+12:           &nbsp;&nbsp;|&nbsp;&nbsp;# of errors = <%= upload_template.no_errors %>
+
+    app/views/upload_templates/index.html.erb:9
+    app/views/upload_templates/index.html.erb:7:in `each'
+    app/views/upload_templates/index.html.erb:7
+    app/controllers/upload_templates_controller.rb:9:in `index'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-07 23:56:37) [GET]
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 91ms (View: 16, DB: 3) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-07 23:56:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#destroy (for 127.0.0.1 at 2010-09-07 23:56:52) [DELETE]
+  Parameters: {"authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "id"=>"1"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Delete all (0.5ms)[0m   [0;1mDELETE FROM `data_columns` WHERE ((upload_template_id = 1)) [0m
+  [4;35;1mUploadTemplate Destroy (0.2ms)[0m   [0mDELETE FROM `upload_templates` WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/upload_templates
+Completed in 25ms (DB: 4) | 302 Found [http://localhost/upload_templates/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-07 23:56:52) [GET]
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-07 23:56:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#new (for 127.0.0.1 at 2010-09-08 00:00:41) [GET]
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Rendering template within layouts/application
+Rendering upload_templates/new
+Rendered upload_templates/_upload_form (2.3ms)
+Completed in 25ms (View: 14, DB: 2) | 200 OK [http://localhost/upload_templates/new]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 00:00:41) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-08 00:06:52) [GET]
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 00:06:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (34.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-09-08 03:19:33) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 109ms (View: 54, DB: 53) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 03:19:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-08 03:19:36) [GET]
+  [4;35;1mUploadTemplate Load (22.1ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+Completed in 53ms (View: 21, DB: 22) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 03:19:36) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#new (for 127.0.0.1 at 2010-09-08 03:19:39) [GET]
+  [4;36;1mUploadTemplate Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Rendering template within layouts/application
+Rendering upload_templates/new
+Rendered upload_templates/_upload_form (28.6ms)
+Completed in 80ms (View: 68, DB: 2) | 200 OK [http://localhost/upload_templates/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 03:19:39) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#create (for 127.0.0.1 at 2010-09-08 03:20:07) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "upload_template"=>{"name"=>"test 1", "document"=>#<File:/var/folders/uW/uWXbpvtfG10o14--wSx5H++++TI/-Tmp-/RackMultipart20100908-224-142kom0-0>, "document_cache"=>""}}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'test 1') LIMIT 1[0m
+  [4;36;1mUploadTemplate Create (0.3ms)[0m   [0;1mINSERT INTO `upload_templates` (`name`, `created_at`, `no_errors`, `notes`, `updated_at`, `document`, `status`) VALUES('test 1', '2010-09-08 08:20:07', NULL, NULL, '2010-09-08 08:20:07', 'test1.csv', '0')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (16.9ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 1) ORDER BY seq_no[0m
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 1 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 1, '2010-09-08 08:20:07', 'person id number', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 2 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 2, '2010-09-08 08:20:07', 'first name', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 3 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.3ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 3, '2010-09-08 08:20:07', 'last name', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 4 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 4, '2010-09-08 08:20:07', 'sex', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 5 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 5, '2010-09-08 08:20:07', 'dob', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 6 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 6, '2010-09-08 08:20:07', 'home s1', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 7 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 7, '2010-09-08 08:20:07', 'home city', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 8 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 8, '2010-09-08 08:20:07', 'home state', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 9 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 9, '2010-09-08 08:20:07', 'home zip', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 10 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 10, '2010-09-08 08:20:07', 'work s1', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 11 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 11, '2010-09-08 08:20:07', 'work city', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 12 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 12, '2010-09-08 08:20:07', 'work state', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 13 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 13, '2010-09-08 08:20:07', 'work zip', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 14 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 14, '2010-09-08 08:20:07', 'home #', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 15 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 15, '2010-09-08 08:20:07', 'cell #', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 16 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 16, '2010-09-08 08:20:07', 'work #', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 17 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 17, '2010-09-08 08:20:07', 'email', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 18 AND `data_columns`.upload_template_id = 1) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-08 08:20:07', NULL, 18, '2010-09-08 08:20:07', 'work email', 1, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/upload_templates/1
+Completed in 143ms (DB: 39) | 302 Found [http://localhost/upload_templates]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-08 03:20:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (1.3ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 1) [0m
+  [4;36;1mDataColumn Load (0.5ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 1) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (14.5ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+
+ActionView::TemplateError (undefined method `editupload_template_path' for #<ActionView::Base:0x1039d4a28>) on line #24 of app/views/upload_templates/show.html.erb:
+21: </table>
+22: 
+23: <br>
+24: <%= link_to 'Edit', editupload_template_path(@upload_template) %> |
+25: <%= link_to 'Back', upload_templates_path %> |
+26: <%= link_to 'Map Data', :action => "map_data", :id => @upload_template %></td>
+
+    app/views/upload_templates/show.html.erb:24
+    app/controllers/upload_templates_controller.rb:33:in `show'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.6ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-08 03:23:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUploadTemplate Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 1) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 1) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.4ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 34ms (View: 15, DB: 5) | 200 OK [http://localhost/upload_templates/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 03:23:31) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-08 03:23:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 1) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 1) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (4.4ms)
+  [4;35;1mDataColumn Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (10.0ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (40.4ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 168ms (View: 150, DB: 5) | 200 OK [http://localhost/upload_templates/map_data/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-08 03:23:51) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/sample.css" with {:method=>:get}):
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-08 03:23:57) [POST]
+  Parameters: {"authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "id"=>"1"}
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.7ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 1) [0m
+Rendered upload_templates/_column_form (28.0ms)
+Completed in 40ms (View: 32, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#table_columns (for 127.0.0.1 at 2010-09-08 03:24:01) [POST]
+  Parameters: {"authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "table_name"=>"Person"}
+Rendered upload_templates/_table_top (1.0ms)
+  [4;36;1mPerson Columns (53.6ms)[0m   [0;1mSHOW FIELDS FROM `persons`[0m
+Rendered upload_templates/_table_columns (66.9ms)
+Completed in 137ms (View: 18, DB: 54) | 200 OK [http://localhost/upload_templates/table_columns?table_name=Person]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-08 03:24:10) [POST]
+  Parameters: {"app_column"=>"person_number", "authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "app_table"=>"persons"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=person_number&app_table=persons]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-08 03:24:13) [POST]
+  Parameters: {"authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "id"=>"1"}
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 1 AND `data_columns`.upload_template_id = 1 AND `data_columns`.id <> 1) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.3ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-08 08:24:13', `data_type_name` = ' ', `app_column` = 'person_number', `app_table` = 'persons' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 1) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.2ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-08 03:24:24) [POST]
+  Parameters: {"authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "id"=>"2"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 2) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-08 03:24:28) [POST]
+  Parameters: {"app_column"=>"first_name", "authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "app_table"=>"persons"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.4ms)
+Completed in 13ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=first_name&app_table=persons]
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-08 03:24:39) [POST]
+  Parameters: {"authenticity_token"=>"KwCD+NMqnb2UZpQRG/RBkXcRTAA3g3L6FUzI5/bRexg=", "id"=>"2"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 2 AND `data_columns`.upload_template_id = 1 AND `data_columns`.id <> 2) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.3ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-08 08:24:39', `data_type_name` = ' ', `app_column` = 'first_name', `app_table` = 'persons' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 1) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (15.3ms)
+Completed in 32ms (View: 18, DB: 5) | 200 OK [http://localhost/upload_templates/map_update/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-08 03:36:55) [GET]
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 23ms (View: 11, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-08 03:37:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUploadTemplate Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 1) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 1) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (0.1ms)
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (4.6ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (20.4ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 47ms (View: 30, DB: 4) | 200 OK [http://localhost/upload_templates/map_data/1]
