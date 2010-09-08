@@ -1,14 +1,14 @@
 require 'csv'
 
-class ExcelUploadsController < ApplicationController
+class DataUploadsController < ApplicationController
 
   def index
 
-    @excel_uploads = ExcelUpload.find(:all, :order => "created_at")
+    @upload_templates = UploadTemplate.find(:all, :order => "created_at")
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @excel_uploads }
+      format.xml  { render :xml => @upload_templates }
     end
 
   end
@@ -16,46 +16,46 @@ class ExcelUploadsController < ApplicationController
 
   def map_data
 
-    @excel_upload = ExcelUpload.find(params[:id])
-    @excel_columns = @excel_upload.excel_columns.find(:all, :order => "seq_no")
+    @upload_template = DataUpload.find(params[:id])
+    @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @excel_uploads }
+      format.xml  { render :xml => @upload_template }
     end
   end
 
 
   def show
-    @excel_upload = ExcelUpload.find(params[:id])
-    @excel_columns = @excel_upload.excel_columns.find(:all, :order => "seq_no")
+    @upload_template = DataUpload.find(params[:id])
+    @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @excel_upload }
+      format.xml  { render :xml => @upload_template }
     end
   end
 
 
   def new
-    @excel_upload = ExcelUpload.new
+    @upload_template = UploadTemplate.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @excel_upload }
+      format.xml  { render :xml => @upload_template }
     end
   end
 
 
   def edit
-    @excel_upload = ExcelUpload.find(params[:id])
+    @upload_template = UploadTemplate.find(params[:id])
   end
 
 
   def create
 
-    @excel_upload = ExcelUpload.new(params[:excel_upload])
-    if !@excel_upload.save
+    @upload_template = UploadTemplate.new(params[:upload_template])
+    if !@upload_template.save
       flash[:notice] = 'There was a problem with creating the template.'
       render :action => "new" and return
     end
@@ -68,15 +68,15 @@ class ExcelUploadsController < ApplicationController
 
     respond_to do |format|
       if @upload_msg == nil
-        flash[:notice] = 'ExcelUpload Template was successfully created.'
-        format.html { redirect_to(@excel_upload) }
-        format.xml  { render :xml => @excel_upload, :status => :created, :location => @excel_upload }
+        flash[:notice] = 'UploadTemplate Template was successfully created.'
+        format.html { redirect_to(@upload_template) }
+        format.xml  { render :xml => @upload_template, :status => :created, :location => @upload_template }
       else
-        @excel_upload.destroy
-        @excel_upload.excel_template = @upload_msg
+        @upload_template.destroy
+        @upload_template.name = @upload_msg
         flash[:notice] = 'There was a problem with creating the template.'
         format.html { render :action => "new" }
-        format.xml  { render :xml => @excel_upload.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @upload_template.errors, :status => :unprocessable_entity }
       end
     end
 
@@ -85,11 +85,11 @@ class ExcelUploadsController < ApplicationController
 
   def update
 
-    @excel_upload = ExcelUpload.find(params[:id])
-    params[:excel_upload][:status] = "N"
-    params[:excel_upload][:no_errors] = 0
-    params[:excel_upload][:notes] = " "
-    if !@excel_upload.update_attributes(params[:excel_upload])
+    @upload_template = UploadTemplate.find(params[:id])
+    params[:upload_template][:status] = "0"
+    params[:upload_template][:no_errors] = 0
+    params[:upload_template][:notes] = " "
+    if !@upload_template.update_attributes(params[:upload_template])
       flash[:notice] = 'There was a problem with updating the template.'
       render :action => "edit" and return
     end
@@ -102,23 +102,23 @@ class ExcelUploadsController < ApplicationController
 
     respond_to do |format|
       if @upload_msg == nil
-        flash[:notice] = 'ExcelUpload Template was successfully updated.'
-        format.html { redirect_to(@excel_upload) }
+        flash[:notice] = 'UploadTemplate Template was successfully updated.'
+        format.html { redirect_to(@upload_template) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @excel_upload.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @upload_template.errors, :status => :unprocessable_entity }
       end
     end
   end
 
 
   def destroy
-    @excel_upload = ExcelUpload.find(params[:id])
-    @excel_upload.destroy
+    @upload_template = UploadTemplate.find(params[:id])
+    @upload_template.destroy
 
     respond_to do |format|
-      format.html { redirect_to(excel_uploads_url) }
+      format.html { redirect_to(upload_templates_url) }
       format.xml  { head :ok }
     end
   end
@@ -128,7 +128,7 @@ class ExcelUploadsController < ApplicationController
 
     @upload_msg = nil
 
-    @parsed_file=CSV.parse(@excel_upload.document.to_s)
+    @parsed_file=CSV.parse(@upload_template.document.to_s)
     @parsed_file.each  do |row|
       @column_headers = row
       if @column_headers.length <= 1 || @column_headers[0].length >= 100
@@ -143,8 +143,8 @@ class ExcelUploadsController < ApplicationController
 
   def create_columns
     
-    @excel_columns = @excel_upload.excel_columns.find(:all, :order => "seq_no")
-    if !@excel_columns.empty?
+    @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
+    if !@data_columns.empty?
       @upload_msg = "Problem encountered"
       return
     end
@@ -152,13 +152,13 @@ class ExcelUploadsController < ApplicationController
     seq_no = 0
     @column_headers.each do |h|
       seq_no += 1
-      excel_column = ExcelColumn.new
-      excel_column.excel_upload_id = @excel_upload.id
-      excel_column.seq_no = seq_no
-      excel_column.excel_column = h
-      excel_column.app_table = "none"
-      excel_column.app_column = "none"
-      if !excel_column.save
+      data_column = DataColumn.new
+      data_column.upload_template_id = @upload_template.id
+      data_column.seq_no = seq_no
+      data_column.input_column = h
+      data_column.app_table = "none"
+      data_column.app_column = "none"
+      if !data_column.save
         @upload_msg = "Problem with save"
       end
     end
@@ -168,18 +168,18 @@ class ExcelUploadsController < ApplicationController
 
   def check_columns
     
-    @excel_columns = @excel_upload.excel_columns.find(:all, :order => "seq_no")
-    if @excel_columns.empty?
+    @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
+    if @data_columns.empty?
       @upload_msg = "Problem"
       return
     end
 
     col_no = 0
-    @excel_columns.each do |h|
+    @data_columns.each do |h|
       col_no += 1
       if col_no <= @column_headers.length
-        if h.excel_column != @column_headers[col_no-1]
-          h.excel_column = @column_headers[col_no-1]
+        if h.input_column != @column_headers[col_no-1]
+          h.input_column = @column_headers[col_no-1]
           if !h.save
             @upload_msg = "System problem"
           end
@@ -198,13 +198,13 @@ class ExcelUploadsController < ApplicationController
         if seq_no <= col_no
           next
         else
-          excel_column = ExcelColumn.new
-          excel_column.excel_upload_id = @excel_upload.id
-          excel_column.seq_no = seq_no
-          excel_column.excel_column = h
-          excel_column.app_table = "none"
-          excel_column.app_column = "none"
-          if !excel_column.save
+          data_column = DataColumn.new
+          data_column.upload_template_id = @upload_template.id
+          data_column.seq_no = seq_no
+          data_column.input_column = h
+          data_column.app_table = "none"
+          data_column.app_column = "none"
+          if !data_column.save
             @upload_msg = "System problem"
           end
         end
@@ -262,7 +262,7 @@ class ExcelUploadsController < ApplicationController
 
   def map_input
 
-    session[:excel_column] = @column_form = ExcelColumn.find(params[:id])
+    session[:data_column] = @column_form = DataColumn.find(params[:id])
     @upload_msg = nil
 
     render :update do |page|
@@ -275,18 +275,18 @@ class ExcelUploadsController < ApplicationController
   def map_field
 
     @upload_msg = nil
-    if session[:excel_column] || session[:excel_column] != nil
-      session[:excel_column].app_table = params[:app_table]
-      session[:excel_column].app_column = params[:app_column]
+    if session[:data_column] || session[:data_column] != nil
+      session[:data_column].app_table = params[:app_table]
+      session[:data_column].app_column = params[:app_column]
       if session[:data_type_name] != " "
-        session[:excel_column].data_type_name = session[:data_type_name]
-        session[:excel_column].data_type_id = session[:data_type_id]
+        session[:data_column].data_type_name = session[:data_type_name]
+        session[:data_column].data_type_id = session[:data_type_id]
       else
         @upload_msg = "Please select a type first." if session[:type_required] == true
       end
-      @column_form = session[:excel_column]
+      @column_form = session[:data_column]
     else
-      @upload_msg = "Please select an Excel column first."
+      @upload_msg = "Please select an Input column first."
     end
 
     render :update do |page|
@@ -303,9 +303,9 @@ class ExcelUploadsController < ApplicationController
   def map_update
 
     @upload_msg = nil
-    @column_form = ExcelColumn.find(session[:excel_column].id)
-    @column_form.app_table = session[:excel_column].app_table
-    @column_form.app_column = session[:excel_column].app_column
+    @column_form = DataColumn.find(session[:data_column].id)
+    @column_form.app_table = session[:data_column].app_table
+    @column_form.app_column = session[:data_column].app_column
     @column_form.data_type_name = session[:data_type_name]
     @column_form.data_type_id = session[:data_type_id]
     
@@ -313,8 +313,8 @@ class ExcelUploadsController < ApplicationController
       @upload_msg = "System Problem"
     end
 
-    @excel_columns = ExcelColumn.find(:all, :conditions => ["excel_upload_id = ?", @column_form.excel_upload_id.to_i], :order => "seq_no")
-    session[:excel_column] = nil
+    @data_columns = DataColumn.find(:all, :conditions => ["upload_template_id = ?", @column_form.upload_template_id.to_i], :order => "seq_no")
+    session[:data_column] = nil
 
     render :update do |page|
       if @upload_msg == nil
@@ -332,9 +332,9 @@ class ExcelUploadsController < ApplicationController
   def map_cancel
 
     @upload_msg = nil
-    @column_form = ExcelColumn.find(session[:excel_column].id)
-    @excel_columns = ExcelColumn.find(:all, :conditions => ["excel_upload_id = ?", @column_form.excel_upload_id.to_i], :order => "seq_no")
-    session[:excel_column] = nil
+    @column_form = DataColumn.find(session[:data_column].id)
+    @data_columns = DataColumn.find(:all, :conditions => ["upload_template_id = ?", @column_form.upload_template_id.to_i], :order => "seq_no")
+    session[:data_column] = nil
 
     render :update do |page|
       page.replace_html "map-row-info", :partial=>'blank'
@@ -347,7 +347,7 @@ class ExcelUploadsController < ApplicationController
   def map_remove
 
     @upload_msg = nil
-    @column_form = ExcelColumn.find(session[:excel_column].id)
+    @column_form = DataColumn.find(session[:data_column].id)
     @column_form.app_table = "none"
     @column_form.app_column = "none"
     @column_form.data_type_id = nil
@@ -356,8 +356,8 @@ class ExcelUploadsController < ApplicationController
       @upload_msg = "System problem"
     end
 
-    @excel_columns = ExcelColumn.find(:all, :conditions => ["excel_upload_id = ?", @column_form.excel_upload_id.to_i], :order => "seq_no")
-    session[:excel_column] = nil
+    @data_columns = DataColumn.find(:all, :conditions => ["upload_template_id = ?", @column_form.upload_template_id.to_i], :order => "seq_no")
+    session[:data_column] = nil
 
     render :update do |page|
       if @upload_msg == nil
@@ -374,7 +374,7 @@ class ExcelUploadsController < ApplicationController
 
   def view_file
 
-    doc = ExcelUpload.find(params[:id]).document.to_s
+    doc = UploadTemplate.find(params[:id]).document.to_s
     send_file(doc, :type => :text, :disposition => 'inline') and return
 
   end
@@ -382,15 +382,16 @@ class ExcelUploadsController < ApplicationController
 
   def process_file
 
-    @excel_upload = ExcelUpload.find(params[:id])
-    @excel_upload.no_errors = 0
-    @excel_upload.notes = " "
-    @excel_columns = @excel_upload.excel_columns.find(:all, :order => "seq_no")
+    @upload_template = UploadTemplate.find(params[:id])
+    @upload_template.status = "1"
+    @upload_template.no_errors = 0
+    @upload_template.notes = " "
+    @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
   
     @tablenames = []
     @attrtables = []
     table_no = -1
-    @excel_columns.each do |h|
+    @data_columns.each do |h|
       t = h.app_table
       t += h.data_type_name if h.data_type_name != " "
       if !@tablenames.include? t
@@ -402,7 +403,7 @@ class ExcelUploadsController < ApplicationController
     end
 
       row_count = 0
-      @parsed_file=CSV.parse(@excel_upload.document.to_s)
+      @parsed_file=CSV.parse(@upload_template.document.to_s)
       @parsed_file.each  do |row|
         row_count += 1
         if row_count == 1
@@ -413,9 +414,9 @@ class ExcelUploadsController < ApplicationController
         end
       end
 
-    @excel_upload.status = "P"
-    if !@excel_upload.save
-      logger.info "Upload status could not be set to 'P'"
+    @upload_template.status = "2"
+    if !@upload_template.save
+      logger.info "Upload status could not be set to '2'"
     end
 
     render :update do |page|
@@ -434,20 +435,20 @@ class ExcelUploadsController < ApplicationController
       @itemtables[i] = []
       @ikeytables[i] = []
     end
-    @excel_columns.each do |excel_column|
-      item = @column_data[excel_column.seq_no - 1]
+    @data_columns.each do |data_column|
+      item = @column_data[data_column.seq_no - 1]
       item = item.strip if item.nil?
-      t = excel_column.app_table
-      t += excel_column.data_type_name if excel_column.data_type_name?
+      t = data_column.app_table
+      t += data_column.data_type_name if data_column.data_type_name?
       @tablenames.each_with_index do |tname, i|
         if tname == t
           @itemtables[i] << item
-          @ikeytables[i][0] = excel_column.data_type_id
-          @ikeytables[i][1] = excel_column.data_type_name
+          @ikeytables[i][0] = data_column.data_type_id
+          @ikeytables[i][1] = data_column.data_type_name
           break
         end
       end
-    end  #@excel_columns.each do |excel_column|
+    end  #@data_columns.each do |data_column|
     @datatables = []
     @tablenames.each_with_index do |tname, i|
       @datatables[i] = {}
@@ -467,9 +468,9 @@ class ExcelUploadsController < ApplicationController
 
   def process_parent
 
-    class_name = @excel_columns[0].app_table.split('_').collect { |word| word.capitalize }.join.singularize
+    class_name = @data_columns[0].app_table.split('_').collect { |word| word.capitalize }.join.singularize
     @p_class = Object.const_get(class_name)
-    @key = @excel_columns[0].app_column + " = '#{@column_data[0]}'"
+    @key = @data_columns[0].app_column + " = '#{@column_data[0]}'"
 
     @p_table = @p_class.find(:first, :conditions => ["#{@key}"])
     if @p_table
@@ -477,8 +478,8 @@ class ExcelUploadsController < ApplicationController
         @p_table.update_attributes(@datatables[@table_no])
       rescue
         logger.info "#{@p_class.name} update NOT successful:" + @key
-        @excel_upload.no_errors += 1
-        @excel_upload.notes += "#{@p_class.name} update NOT successful:" + @key + "<br>"
+        @upload_template.no_errors += 1
+        @upload_template.notes += "#{@p_class.name} update NOT successful:" + @key + "<br>"
         @key = false
       end
     else
@@ -487,8 +488,8 @@ class ExcelUploadsController < ApplicationController
         @p_table = @p_class.find(:first, :conditions => ["#{@key}"])
       rescue
         logger.info "#{@p_class.name} save NOT successful:" + @key
-        @excel_upload.no_errors += 1
-        @excel_upload.notes += "#{@p_class.name} save NOT successful:" + @key + "<br>"
+        @upload_template.no_errors += 1
+        @upload_template.notes += "#{@p_class.name} save NOT successful:" + @key + "<br>"
         @key = false
       end  
     end
@@ -512,8 +513,8 @@ class ExcelUploadsController < ApplicationController
         c_table.update_attributes(@datatables[@table_no])
       rescue
         logger.info "#{c_class.name} update NOT successful:" + c_key
-        @excel_upload.no_errors += 1
-        @excel_upload.notes += "#{c_class.name} update NOT successful:" + c_key + "<br>"
+        @upload_template.no_errors += 1
+        @upload_template.notes += "#{c_class.name} update NOT successful:" + c_key + "<br>"
         @key = false
       end
     else
@@ -526,8 +527,8 @@ class ExcelUploadsController < ApplicationController
         c_table = c_class.find(:first, :conditions => ["#{c_key}"])
       rescue
         logger.info "#{c_class.name} save NOT successful:" + c_key
-        @excel_upload.no_errors += 1
-        @excel_upload.notes += "#{c_class.name} save NOT successful:" + c_key + "<br>"
+        @upload_template.no_errors += 1
+        @upload_template.notes += "#{c_class.name} save NOT successful:" + c_key + "<br>"
         @key = false
       end
     end 

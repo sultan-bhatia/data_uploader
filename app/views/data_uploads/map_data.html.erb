@@ -1,15 +1,15 @@
 <table width="100%">
   <tr class="table-header-row">
     <td class="table-header-row" colspan=2 valign=top><b>Template:</b>
-      <b><span id="profile-header-name"><%=h @excel_upload.excel_template if @excel_upload.excel_template %></b>
-      | Status:<b><%=h (@excel_upload.status == "P")? "Processed" : "Not Processed Yet" %></b>
-      <% if @excel_upload.status == "P" %>
-       | Process Date:<b><%=h @excel_upload.updated_at if @excel_upload.updated_at %></b>
+      <b><span id="profile-header-name"><%=h @upload_template.name if @upload_template.name %></b>
+      | Status:<b><%=h (@upload_template.status == "2")? "Processed" : "Not Processed Yet" %></b>
+      <% if @upload_template.status == "2" %>
+       | Process Date:<b><%=h @upload_template.updated_at if @upload_template.updated_at %></b>
       <% end %>
     </td>
     <td class="table-header-row" colspan=1 valign=top align=center>
-      <% if @excel_upload.status != "P" %>
-        <b><%= link_to_remote 'Process File', :url => {:action => "process_file", :id => @excel_upload.id} %></b>
+      <% if @upload_template.status != "2" %>
+        <b><%= link_to_remote 'Process File', :url => {:action => "process_file", :id => @upload_template.id} %></b>
 		&nbsp;|&nbsp;&nbsp;<%= link_to 'Exit', :action => :index %>
       <% end %>
     </td>
@@ -17,7 +17,7 @@
   <tr class="table-header-row">
     <td class="table-header-row" colspan=3 valign=top>
       <b><span id="profile-header-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <%=h @excel_upload.document.file.filename if @excel_upload.document? %></span></b>
+         <%=h @upload_template.document.file.filename if @upload_template.document? %></span></b>
     </td></tr>
 
   <tr><td colspan=3 valign=top><hr></td></tr>
@@ -34,7 +34,7 @@
 
   <tr>
     <td  valign=top>
-      <h3>Excel File Columns</h3>
+      <h3>Input File Columns</h3>
       <div id="display-map">
         <%= render :partial => "display_map" %>
       </div>

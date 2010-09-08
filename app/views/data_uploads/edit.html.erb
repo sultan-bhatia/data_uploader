@@ -1,0 +1,12 @@
+<h1>Edit Template</h1>
+
+<% form_for @upload_template, :html=>{:multipart=>true} do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'upload_form', :locals => {:f => f} %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @data_upload %> |
+<%= link_to 'Back', data_uploads_path %>

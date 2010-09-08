@@ -1,0 +1,11 @@
+<h1>New Template</h1>
+
+<% form_for @upload_template, :url => data_uploads_path(@upload_template), :html=>{:multipart=>true} do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'upload_form', :object => @upload_template, :locals => {:f => f} %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', data_uploads_path %>

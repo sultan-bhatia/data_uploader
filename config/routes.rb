@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :gp_uploads
+  map.resources :data_uploads
 
   # The priority is based upon order of creation: first created -> highest priority.
 

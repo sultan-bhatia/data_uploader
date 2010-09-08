@@ -1,0 +1,27 @@
+<h1>Upload Templates</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @upload_templates.each do |upload_templates| %>
+  <tr>
+    <td><b><%= upload_template.name %>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= (upload_template.status == "2")? "Processed" : "Not Processed Yet" %>
+        <% if upload_template.no_errors && upload_template.no_errors > 0  %>
+          &nbsp;&nbsp;|&nbsp;&nbsp;# of errors = <%= upload_template.no_errors %>
+        <% end %>
+        </b><br>
+        <%= upload_template.document.file.filename %><td>
+    <td>&nbsp;&nbsp;<%= link_to 'Show', data_upload %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Edit', edit_data_upload_path(upload_template) %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Delete Template', data_upload, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Map Data', :action => "map_data", :id => upload_template %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'View File', :action => "view_file", :id => upload_template %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Template', new_data_upload_path %>

@@ -1,8 +1,8 @@
 Template Name<br>
-<%= f.text_field :excel_template %>
+<%= f.text_field :name %>
 <p>
 Select the <b><u>.csv file </u></b>containing the upload information.<br>
 <%= f.file_field :document, :size => 60 %>
 <%= f.hidden_field :document_cache, :size => 60 %>
-<% if @excel_upload.document? %><br>Current upload file: <%= @excel_upload.document.file.filename %><% end %>
+<% if @upload_template.document? %><br>Current upload file: <%= @upload_template.document.file.filename %><% end %>
 </p>
