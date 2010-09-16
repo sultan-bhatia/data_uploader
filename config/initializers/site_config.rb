@@ -4,7 +4,7 @@
     $TYPE_TABLES = []
     ActiveRecord::Base.connection.tables.each do |table_name|
       y = true
-      ["excel", "schema", "migration", "session"].each{|x|
+      ["upload_templates", "data_columns", "schema", "migration", "session"].each{|x|
         y = false if table_name.include? x
       }
       if y

@@ -2,17 +2,25 @@
 
 <table>
   <tr>
+    <th>Template</th>
+    <th>File</th>
+    <th>Status</th>
+    <th># errors </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
   </tr>
 
 <% @upload_templates.each do |upload_template| %>
   <tr>
-    <td><b><%= upload_template.name %>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <%= (upload_template.status == "2")? "Processed" : "Not Processed Yet" %>
-        <% if upload_template.no_errors && upload_template.no_errors > 0  %>
-          &nbsp;&nbsp;|&nbsp;&nbsp;# of errors = <%= upload_template.no_errors %>
-        <% end %>
-        </b><br>
-        <%= upload_template.document.file.filename %><td>
+    <td><%= upload_template.name %>&nbsp;&nbsp;</td>
+    <td><%= upload_template.document.file.filename %></td>
+    <td>&nbsp;&nbsp;<%= (upload_template.status == "2")? "Processed" : "Not Processed Yet" %></td>
+    <td><% if upload_template.no_errors && upload_template.no_errors > 0  %>
+          &nbsp;&nbsp;# of errors = <%= upload_template.no_errors %>
+        <% end %></td>
     <td>&nbsp;&nbsp;<%= link_to 'Show', upload_template %></td>
     <td>&nbsp;&nbsp;<%= link_to 'Edit', edit_upload_template_path(upload_template) %></td>
     <td>&nbsp;&nbsp;<%= link_to 'Delete Template', upload_template, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -22,6 +30,6 @@
 <% end %>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Template', new_upload_template_path %>

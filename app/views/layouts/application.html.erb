@@ -1,18 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>DataUploader: <%= controller.action_name %></title>
-
-<%= stylesheet_link_tag 'data_uploader' %>
-
-<%= javascript_include_tag :defaults %>
-
+  <title>DataUploader: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'data_uploader' %>
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
-
+  <!--div id="site-banner"-->
+    <!--Sultan's Ruby on Rails Site-->
+  <!--/div-->
+  <div id="app-banner">
+    Data Uploader
+  </div>
   <div id="main-content">
     <%= yield %>
   </div>
-
 </body>
 </html>

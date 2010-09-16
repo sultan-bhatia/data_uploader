@@ -68,7 +68,7 @@ class UploadTemplatesController < ApplicationController
 
     respond_to do |format|
       if @upload_msg == nil
-        flash[:notice] = 'UploadTemplate Template was successfully created.'
+        flash[:notice] = 'Template was successfully created.'
         format.html { redirect_to(@upload_template) }
         format.xml  { render :xml => @upload_template, :status => :created, :location => @upload_template }
       else
@@ -102,7 +102,7 @@ class UploadTemplatesController < ApplicationController
 
     respond_to do |format|
       if @upload_msg == nil
-        flash[:notice] = 'UploadTemplate Template was successfully updated.'
+        flash[:notice] = 'Template was successfully updated.'
         format.html { redirect_to(@upload_template) }
         format.xml  { head :ok }
       else
@@ -245,8 +245,8 @@ class UploadTemplatesController < ApplicationController
     session[:ttype_name] = params[:ttype_name]
     session[:data_type_name] = params[:data_type_name]
     $TYPE_TABLES.each {|ttype| @ttype = ttype if (params[:ttype_name] == ttype.name)}
-    session[:data_type_id] = @ttype.find_by_name(params[:data_type_name]).id
-    @ttype_data = @ttype.find(:all, :order => "name").map {|p| [p.name]}
+    session[:data_type_id] = Object.const_get(@ttype.name).find_by_name(params[:data_type_name]).id
+    @ttype_data = Object.const_get(@ttype.name).find(:all, :order => "name").map {|p| [p.name]}
     @a = []
     @a << ["#{session[:data_type_name]}"]
     @ttype_data = @ttype_data - @a
@@ -498,7 +498,7 @@ class UploadTemplatesController < ApplicationController
 
 
   def process_child
-
+    logger.info "PROCESS_CHILD"
     class_name = "none"
     $TABLE_ARR.each {|t| class_name = t.name if (@tname.include? t.name.downcase)}
 
@@ -511,6 +511,7 @@ class UploadTemplatesController < ApplicationController
     if c_table
       begin
         c_table.update_attributes(@datatables[@table_no])
+        logger_info "c_table exists"
       rescue
         logger.info "#{c_class.name} update NOT successful:" + c_key
         @upload_template.no_errors += 1
@@ -524,6 +525,7 @@ class UploadTemplatesController < ApplicationController
         item = class_name.downcase + '_type_id'
         @datatables[@table_no][item] = @ikeytables[@table_no][0]
         c_class.create(@datatables[@table_no])
+        logger_info "c_table does not exists"
         c_table = c_class.find(:first, :conditions => ["#{c_key}"])
       rescue
         logger.info "#{c_class.name} save NOT successful:" + c_key

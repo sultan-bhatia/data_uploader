@@ -1,13 +1,15 @@
 body { 
-  background: #e0e7d1 repeat-x;
+  background: #e0e7d1;
   color: #333;
   padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 10px;
+/*  margin: 0px 0px 0px 0px; */
+  margin: 0px 220px 0px 230px;
 }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   10pt;
+/*  font-size:   10pt; */
+  font-size:   7pt;
   line-height: 20px;
 }
 
@@ -22,18 +24,37 @@ a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
 fieldset{
-border:1px solid #FFFFFF;
-padding:10px;
+  border:1px solid #FFFFFF;
+  padding:10px;
 }
 
 .submit 
 {
-	margin:10px 0px 0px 0px;
+  margin:10px 0px 0px 0px;
 } 
 
+#site-banner {
+  background: #9c9;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: 30px/30px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
+}
+
+#app-banner {
+  background: #e0e7d1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font: 30px/30px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
+}
+
 #main-content{
-margin:50px 20px 0px 10px;
-border:1px solid #7F7F7F;
-padding:5px 15px 5px 15px;
-background:#EFF9FF;
+  margin:0px 10px 0px 10px;
+  border:1px solid #7F7F7F;
+  padding:5px 15px 5px 15px;
+  background:#EFF9FF;
 }

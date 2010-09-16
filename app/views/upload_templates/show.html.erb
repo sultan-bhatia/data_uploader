@@ -1,6 +1,6 @@
 <h2>Upload Template Information</h2>
 <%= display_flashes %>
-<table class=tcap_table>
+<table>
   <tr><th>Template:</th><td><%=h @upload_template.name if @upload_template.name %></td></tr>
   <tr><th>Status:</th><td><%=h (@upload_template.status == "2")? "Processed" : "Not Processed Yet" %></td></tr>
   <tr><th># of errors:</th><td><%=h @upload_template.no_errors %></td></tr>
@@ -10,7 +10,7 @@
   <% end %>
   <tr><th>Input File:</th><td><%=h @upload_template.document.file.filename if @upload_template.document? %></td></tr>
 </table>
-<table class="data_table" border="1" cellspacing="0">
+<table border="1" cellspacing="0">
   <tr>
     <th>Seq #</th>
     <th>Input Column</th>
