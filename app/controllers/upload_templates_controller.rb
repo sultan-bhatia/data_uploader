@@ -472,22 +472,25 @@ class UploadTemplatesController < ApplicationController
     @p_class = Object.const_get(class_name)
     @key = @data_columns[0].app_column + " = '#{@column_data[0]}'"
 
-    @p_table = @p_class.find(:first, :conditions => ["#{@key}"])
-    if @p_table
+    @p_data = @p_class.find(:first, :conditions => ["#{@key}"])
+    if @p_data
       begin
-        @p_table.update_attributes(@datatables[@table_no])
+        @p_data.update_attributes(@datatables[@table_no])
       rescue
         logger.info "#{@p_class.name} update NOT successful:" + @key
+        @p_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
         @upload_template.notes += "#{@p_class.name} update NOT successful:" + @key + "<br>"
         @key = false
       end
     else
       begin
-        @p_class.create(@datatables[@table_no])
-        @p_table = @p_class.find(:first, :conditions => ["#{@key}"])
+        @p_data = @p_class.new(@datatables[@table_no])
+        @p_data.save
+###        @p_data = @p_class.find(:first, :conditions => ["#{@key}"])
       rescue
         logger.info "#{@p_class.name} save NOT successful:" + @key
+        @p_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
         @upload_template.notes += "#{@p_class.name} save NOT successful:" + @key + "<br>"
         @key = false
@@ -503,17 +506,24 @@ class UploadTemplatesController < ApplicationController
     $TABLE_ARR.each {|t| class_name = t.name if (@tname.include? t.name.downcase)}
 
     c_class = Object.const_get(class_name)
-    c_key = @p_class.name.downcase + "_id = #{@p_table.id}"
+    p_key = @p_class.name.downcase + "_id = #{@p_data.id}"
     if @ikeytables[@table_no][0]
-      c_key = c_key + " AND " + class_name.downcase + "_type_id = #{@ikeytables[@table_no][0]}"
+      c_key = p_key + " AND " + class_name.downcase + "_type_id = #{@ikeytables[@table_no][0]}"
     end
-    c_table = c_class.find(:first, :conditions => ["#{c_key}"])
-    if c_table
+    c_data = c_class.find(:first, :conditions => ["#{c_key}"])
+    if c_data
       begin
-        c_table.update_attributes(@datatables[@table_no])
-        logger_info "c_table exists"
+        c_data.update_attributes(@datatables[@table_no])
+        logger.info "sab1"
+        logger.info c_data.errors.count
+        logger.info c_data.errors
+        (c_data.errors.each {|i, j| logger.info j}) if c_data.errors.count > 0
+        raise if c_data.errors.count > 0
+        logger.info "sab2"
+        logger.info "c_data exists"
       rescue
         logger.info "#{c_class.name} update NOT successful:" + c_key
+        c_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
         @upload_template.notes += "#{c_class.name} update NOT successful:" + c_key + "<br>"
         @key = false
@@ -521,14 +531,21 @@ class UploadTemplatesController < ApplicationController
     else
       begin
         item = @p_class.name.downcase + '_id'
-        @datatables[@table_no][item] = @p_table.id
+        @datatables[@table_no][item] = @p_data.id
         item = class_name.downcase + '_type_id'
         @datatables[@table_no][item] = @ikeytables[@table_no][0]
-        c_class.create(@datatables[@table_no])
-        logger_info "c_table does not exists"
-        c_table = c_class.find(:first, :conditions => ["#{c_key}"])
+        c_data = c_class.new(@datatables[@table_no])
+        c_data.save
+        logger.info "sab1"
+        logger.info c_data.errors.count
+        logger.info c_data.errors
+        (c_data.errors.each {|i, j| logger.info j}) if c_data.errors.count > 0
+        raise if c_data.errors.count > 0
+        logger.info "sab2"
+        logger.info "c_data does not exists"
       rescue
         logger.info "#{c_class.name} save NOT successful:" + c_key
+        c_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
         @upload_template.notes += "#{c_class.name} save NOT successful:" + c_key + "<br>"
         @key = false
