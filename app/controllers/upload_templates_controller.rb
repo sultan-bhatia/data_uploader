@@ -420,7 +420,8 @@ class UploadTemplatesController < ApplicationController
     end
 
     render :update do |page|
-        @upload_msg = "File uploaded succesfully. Total #{row_count} rows"
+        @upload_msg = "File uploaded succesfully. Total #{row_count} rows. "
+        (@upload_msg += "Total #{@upload_template.no_errors} errors.") if @upload_template.no_errors > 0
         page.replace_html "map-row-info", :partial => "display_msg"       
     end 
 
@@ -514,19 +515,16 @@ class UploadTemplatesController < ApplicationController
     if c_data
       begin
         c_data.update_attributes(@datatables[@table_no])
-        logger.info "sab1"
-        logger.info c_data.errors.count
-        logger.info c_data.errors
-        (c_data.errors.each {|i, j| logger.info j}) if c_data.errors.count > 0
         raise if c_data.errors.count > 0
-        logger.info "sab2"
-        logger.info "c_data exists"
       rescue
-        logger.info "#{c_class.name} update NOT successful:" + c_key
-        c_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
-        @upload_template.notes += "#{c_class.name} update NOT successful:" + c_key + "<br>"
-        @key = false
+        @upload_template.notes += "#{c_class.name} update NOT successful:" + c_key
+        if c_data.errors.count > 0
+          c_data.errors.each {|i, msg| @upload_template.notes += ", " + msg}
+        else
+          @key = false
+        end
+        @upload_template.notes += "<br>"
       end
     else
       begin
@@ -536,19 +534,16 @@ class UploadTemplatesController < ApplicationController
         @datatables[@table_no][item] = @ikeytables[@table_no][0]
         c_data = c_class.new(@datatables[@table_no])
         c_data.save
-        logger.info "sab1"
-        logger.info c_data.errors.count
-        logger.info c_data.errors
-        (c_data.errors.each {|i, j| logger.info j}) if c_data.errors.count > 0
         raise if c_data.errors.count > 0
-        logger.info "sab2"
-        logger.info "c_data does not exists"
       rescue
-        logger.info "#{c_class.name} save NOT successful:" + c_key
-        c_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
-        @upload_template.notes += "#{c_class.name} save NOT successful:" + c_key + "<br>"
-        @key = false
+        @upload_template.notes += "#{c_class.name} save NOT successful:" + c_key
+        if c_data.errors.count > 0
+          c_data.errors.each {|i, msg| @upload_template.notes += ", " + msg}
+        else
+          @key = false
+        end
+        @upload_template.notes += "<br>"
       end
     end 
 

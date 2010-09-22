@@ -1,0 +1,2139 @@
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#process_file (for 127.0.0.1 at 2010-09-20 12:57:14) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"4"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 4) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 4) ORDER BY seq_no[0m
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mPerson Load (0.4ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test01') LIMIT 1[0m
+  [4;36;1mPerson Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `persons`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mPhone Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `phones`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.3ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '111234999' AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mPerson Load (0.2ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test02') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 2) LIMIT 1[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '222234999' AND `phones`.person_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'template abc' AND `upload_templates`.id <> 4) LIMIT 1[0m
+  [4;35;1mUploadTemplate Update (0.2ms)[0m   [0mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 17:57:14', `notes` = ' Phone update NOT successful:person_id = 1 AND phone_type_id = 2, enter 10 digits for phone number<br>Phone save NOT successful:person_id = 2 AND phone_type_id = 2, enter 10 digits for phone number<br>', `no_errors` = 2, `status` = '2' WHERE `id` = 4[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendered upload_templates/_display_msg (0.1ms)
+Completed in 52ms (View: 1, DB: 10) | 200 OK [http://localhost/upload_templates/process_file/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 12:58:26) [GET]
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 22ms (View: 11, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 12:58:31) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUploadTemplate Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 4) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 4) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.6ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 26ms (View: 8, DB: 4) | 200 OK [http://localhost/upload_templates/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 13:19:41) [GET]
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 22ms (View: 11, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#edit (for 127.0.0.1 at 2010-09-20 13:19:48) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering upload_templates/edit
+Rendered upload_templates/_upload_form (19.7ms)
+Completed in 38ms (View: 26, DB: 2) | 200 OK [http://localhost/upload_templates/3/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#update (for 127.0.0.1 at 2010-09-20 13:20:12) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3", "upload_template"=>{"name"=>"Template Test 1", "document"=>#<File:/var/folders/uW/uWXbpvtfG10o14--wSx5H++++TI/-Tmp-/RackMultipart20100920-988-1jbsb3u-0>, "document_cache"=>""}}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.9ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;35;1mUploadTemplate Update (0.2ms)[0m   [0mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 18:20:12', `status` = '0', `document` = 'test3.csv' WHERE `id` = 3[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 2 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 38) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.3ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:20:12', `input_column` = 'cell #' WHERE `id` = 38[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.2ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 39[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 40[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.1ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 41[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.2ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 42[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.1ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 43[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 44[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.1ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 45[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 46[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.2ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 47[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 48[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.1ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 49[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 50[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.1ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 51[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 52[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Destroy (0.1ms)[0m   [0;1mDELETE FROM `data_columns` WHERE `id` = 53[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Destroy (0.1ms)[0m   [0mDELETE FROM `data_columns` WHERE `id` = 54[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/upload_templates/3
+Completed in 55ms (DB: 18) | 302 Found [http://localhost/upload_templates/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 13:20:12) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.7ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.4ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 27ms (View: 8, DB: 4) | 200 OK [http://localhost/upload_templates/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-20 13:20:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (0.1ms)
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (4.4ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (5.6ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 30ms (View: 13, DB: 4) | 200 OK [http://localhost/upload_templates/map_data/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#process_file (for 127.0.0.1 at 2010-09-20 13:20:20) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.7ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mPerson Load (0.4ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test01') LIMIT 1[0m
+  [4;36;1mPerson Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `persons`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPerson Update (0.3ms)[0m   [0;1mUPDATE `persons` SET `updated_at` = '2010-09-20 18:20:20', `first_name` = '111-234-999a' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mPerson Load (0.2ms)[0m   [0;1mSELECT * FROM `persons` WHERE (person_number = 'test02') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPerson Update (0.2ms)[0m   [0;1mUPDATE `persons` SET `updated_at` = '2010-09-20 18:20:20', `first_name` = '222-234-999a' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;36;1mUploadTemplate Update (0.2ms)[0m   [0;1mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 18:20:20', `status` = '2' WHERE `id` = 3[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendered upload_templates/_display_msg (0.1ms)
+Completed in 42ms (View: 1, DB: 9) | 200 OK [http://localhost/upload_templates/process_file/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 13:20:24) [GET]
+  [4;36;1mUploadTemplate Load (0.4ms)[0m   [0;1mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;35;1mUploadTemplate Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 24ms (View: 12, DB: 3) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 13:20:27) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 4) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 4) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.5ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 83ms (View: 9, DB: 4) | 200 OK [http://localhost/upload_templates/4]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 13:21:02) [GET]
+  [4;36;1mUploadTemplate Load (0.4ms)[0m   [0;1mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 22ms (View: 11, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-20 13:21:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (0.1ms)
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (6.1ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_display_map (7.7ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 89ms (View: 14, DB: 4) | 200 OK [http://localhost/upload_templates/map_data/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 13:21:20) [GET]
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;35;1mUploadTemplate Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 22ms (View: 11, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#edit (for 127.0.0.1 at 2010-09-20 13:21:26) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering upload_templates/edit
+Rendered upload_templates/_upload_form (58.9ms)
+Completed in 77ms (View: 65, DB: 3) | 200 OK [http://localhost/upload_templates/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#update (for 127.0.0.1 at 2010-09-20 13:21:41) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3", "upload_template"=>{"name"=>"Template Test 1", "document"=>#<File:/var/folders/uW/uWXbpvtfG10o14--wSx5H++++TI/-Tmp-/RackMultipart20100920-988-1u8j3en-0>, "document_cache"=>""}}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;36;1mUploadTemplate Update (0.3ms)[0m   [0;1mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 18:21:41', `status` = '0', `document` = 'test1.csv' WHERE `id` = 3[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mSQL (80.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 2 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 38) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.3ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:21:41', `input_column` = 'first name' WHERE `id` = 38[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 3 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.3ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 3, '2010-09-20 18:21:41', 'last name', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 4 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 4, '2010-09-20 18:21:41', 'sex', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 5 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 5, '2010-09-20 18:21:41', 'dob', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 6 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 6, '2010-09-20 18:21:41', 'home s1', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 7 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 7, '2010-09-20 18:21:41', 'home city', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 8 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 8, '2010-09-20 18:21:41', 'home state', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 9 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 9, '2010-09-20 18:21:41', 'home zip', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 10 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 10, '2010-09-20 18:21:41', 'work s1', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 11 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 11, '2010-09-20 18:21:41', 'work city', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 12 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 12, '2010-09-20 18:21:41', 'work state', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 13 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 13, '2010-09-20 18:21:41', 'work zip', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 14 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 14, '2010-09-20 18:21:41', 'home #', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 15 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 15, '2010-09-20 18:21:41', 'cell #', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 16 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 16, '2010-09-20 18:21:41', 'work #', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 17 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 17, '2010-09-20 18:21:41', 'email', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 18 AND `data_columns`.upload_template_id = 3) LIMIT 1[0m
+  [4;36;1mDataColumn Create (0.2ms)[0m   [0;1mINSERT INTO `data_columns` (`app_column`, `created_at`, `data_type_id`, `seq_no`, `updated_at`, `input_column`, `upload_template_id`, `data_type_name`, `data_year`, `app_table`) VALUES('none', '2010-09-20 18:21:41', NULL, 18, '2010-09-20 18:21:41', 'work email', 3, NULL, NULL, 'none')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/upload_templates/3
+Completed in 196ms (DB: 103) | 302 Found [http://localhost/upload_templates/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 13:21:42) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.2ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.4ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 29ms (View: 11, DB: 4) | 200 OK [http://localhost/upload_templates/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-20 13:21:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.8ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (0.1ms)
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (4.1ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (18.5ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 44ms (View: 26, DB: 5) | 200 OK [http://localhost/upload_templates/map_data/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:22:03) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"57"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.7ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 57) [0m
+Rendered upload_templates/_column_form (37.1ms)
+Completed in 49ms (View: 42, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/57]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#table_columns (for 127.0.0.1 at 2010-09-20 13:22:10) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "table_name"=>"Person"}
+Rendered upload_templates/_table_top (8.2ms)
+  [4;36;1mPerson Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `persons`[0m
+Rendered upload_templates/_table_columns (48.5ms)
+Completed in 58ms (View: 51, DB: 2) | 200 OK [http://localhost/upload_templates/table_columns?table_name=Person]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:22:17) [POST]
+  Parameters: {"app_column"=>"last_name", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"persons"}
+  [4;35;1mDataColumn Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=last_name&app_table=persons]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:22:19) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"57"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 57) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 3 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 57) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.3ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:22:19', `data_type_name` = ' ', `app_column` = 'last_name', `app_table` = 'persons' WHERE `id` = 57[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.1ms)
+Completed in 32ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/57]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:22:24) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"58"}
+  [4;35;1mDataColumn Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 58) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/58]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:22:31) [POST]
+  Parameters: {"app_column"=>"gender", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"persons"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=gender&app_table=persons]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:22:42) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"59"}
+  [4;36;1mDataColumn Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 59) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/59]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:22:48) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"58"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 58) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 13ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/58]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:22:51) [POST]
+  Parameters: {"app_column"=>"gender", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"persons"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=gender&app_table=persons]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:22:53) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"58"}
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 58) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 4 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 58) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.2ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:22:53', `data_type_name` = ' ', `app_column` = 'gender', `app_table` = 'persons' WHERE `id` = 58[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.8ms)
+Completed in 31ms (View: 19, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/58]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:22:58) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"59"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 59) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/59]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:23:02) [POST]
+  Parameters: {"app_column"=>"birth_date", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"persons"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.3ms)
+Completed in 13ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=birth_date&app_table=persons]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:23:05) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"59"}
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 59) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 5 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 59) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.3ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:23:05', `data_type_name` = ' ', `app_column` = 'birth_date', `app_table` = 'persons' WHERE `id` = 59[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.3ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.1ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/59]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:24:11) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"60"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 60) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/60]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#table_columns (for 127.0.0.1 at 2010-09-20 13:24:16) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "table_name"=>"Address"}
+  [4;36;1mAddressType Load (41.4ms)[0m   [0;1mSELECT * FROM `address_types` ORDER BY name[0m
+  [4;35;1mAddressType Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `address_types`[0m
+Rendered upload_templates/_table_top (0.1ms)
+  [4;36;1mAddress Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `addresses`[0m
+Rendered upload_templates/_table_columns (10.4ms)
+Completed in 122ms (View: 67, DB: 46) | 200 OK [http://localhost/upload_templates/table_columns?table_name=Address]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:24:21) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Home", "table_name"=>"Address", "ttype_name"=>"AddressType"}
+  [4;35;1mAddressType Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `address_types`[0m
+  [4;36;1mAddressType Load (0.2ms)[0m   [0;1mSELECT * FROM `address_types` WHERE (`address_types`.`name` = 'Home') LIMIT 1[0m
+  [4;35;1mAddressType Load (0.2ms)[0m   [0mSELECT * FROM `address_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (6.1ms)
+Completed in 20ms (View: 8, DB: 2) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:24:45) [POST]
+  Parameters: {"app_column"=>"street_1", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=street_1&app_table=addresses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:24:48) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"60"}
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 60) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 6 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 60) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.3ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:24:48', `data_type_id` = 2, `data_type_name` = 'Home', `app_column` = 'street_1', `app_table` = 'addresses' WHERE `id` = 60[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.2ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (15.9ms)
+Completed in 32ms (View: 19, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/60]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:24:51) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"61"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.7ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 61) [0m
+Rendered upload_templates/_column_form (3.6ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/61]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:24:55) [POST]
+  Parameters: {"app_column"=>"city", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.1ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=city&app_table=addresses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:24:58) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"61"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 61) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 7 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 61) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.2ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:24:58', `data_type_id` = 2, `data_type_name` = 'Home', `app_column` = 'city', `app_table` = 'addresses' WHERE `id` = 61[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (15.1ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/61]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:25:01) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"62"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.7ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 62) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 12ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/62]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:25:04) [POST]
+  Parameters: {"app_column"=>"state", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 13ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=state&app_table=addresses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:25:06) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"62"}
+  [4;35;1mDataColumn Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 62) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 8 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 62) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.3ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:25:06', `data_type_id` = 2, `data_type_name` = 'Home', `app_column` = 'state', `app_table` = 'addresses' WHERE `id` = 62[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.4ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (14.5ms)
+Completed in 32ms (View: 18, DB: 5) | 200 OK [http://localhost/upload_templates/map_update/62]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:25:13) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"63"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.7ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 63) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/63]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:25:15) [POST]
+  Parameters: {"app_column"=>"zip_code", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=zip_code&app_table=addresses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:25:18) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"63"}
+  [4;35;1mDataColumn Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 63) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 9 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 63) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.2ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:25:18', `data_type_id` = 2, `data_type_name` = 'Home', `app_column` = 'zip_code', `app_table` = 'addresses' WHERE `id` = 63[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (14.8ms)
+Completed in 31ms (View: 18, DB: 3) | 200 OK [http://localhost/upload_templates/map_update/63]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:25:21) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"64"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.7ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 64) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/64]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:25:27) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Work", "table_name"=>"Address", "ttype_name"=>"AddressType"}
+  [4;36;1mAddressType Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `address_types`[0m
+  [4;35;1mAddressType Load (0.2ms)[0m   [0mSELECT * FROM `address_types` WHERE (`address_types`.`name` = 'Work') LIMIT 1[0m
+  [4;36;1mAddressType Load (0.2ms)[0m   [0;1mSELECT * FROM `address_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (5.9ms)
+Completed in 20ms (View: 8, DB: 3) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:25:29) [POST]
+  Parameters: {"app_column"=>"street_1", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.3ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=street_1&app_table=addresses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:25:31) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"64"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 64) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 10 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 64) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.3ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:25:31', `data_type_id` = 3, `data_type_name` = 'Work', `app_column` = 'street_1', `app_table` = 'addresses' WHERE `id` = 64[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (14.9ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/64]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:25:41) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"65"}
+  [4;35;1mDataColumn Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 65) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/65]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:25:44) [POST]
+  Parameters: {"app_column"=>"city", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;35;1mDataColumn Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=city&app_table=addresses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:25:47) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"65"}
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 65) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 11 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 65) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.2ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:25:47', `data_type_id` = 3, `data_type_name` = 'Work', `app_column` = 'city', `app_table` = 'addresses' WHERE `id` = 65[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.1ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (1.0ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (73.3ms)
+Completed in 89ms (View: 76, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/65]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:25:51) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"66"}
+  [4;35;1mDataColumn Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 66) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 12ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/66]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:25:54) [POST]
+  Parameters: {"app_column"=>"state", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.1ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=state&app_table=addresses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:25:56) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"66"}
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 66) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 12 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 66) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.2ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:25:56', `data_type_id` = 3, `data_type_name` = 'Work', `app_column` = 'state', `app_table` = 'addresses' WHERE `id` = 66[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.0ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.1ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/66]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:26:02) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"67"}
+  [4;35;1mDataColumn Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 67) [0m
+Rendered upload_templates/_column_form (3.6ms)
+Completed in 13ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/67]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:26:05) [POST]
+  Parameters: {"app_column"=>"zip_code", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"addresses"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.1ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=zip_code&app_table=addresses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:26:07) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"67"}
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 67) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 13 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 67) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.2ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:26:07', `data_type_id` = 3, `data_type_name` = 'Work', `app_column` = 'zip_code', `app_table` = 'addresses' WHERE `id` = 67[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.2ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.1ms)
+Completed in 30ms (View: 18, DB: 3) | 200 OK [http://localhost/upload_templates/map_update/67]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:26:12) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"68"}
+  [4;35;1mDataColumn Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (2.0ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 68) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 14ms (View: 5, DB: 4) | 200 OK [http://localhost/upload_templates/map_input/68]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#table_columns (for 127.0.0.1 at 2010-09-20 13:26:16) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "table_name"=>"Phone"}
+  [4;35;1mPhoneType Load (37.4ms)[0m   [0mSELECT * FROM `phone_types` ORDER BY name[0m
+  [4;36;1mPhoneType Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `phone_types`[0m
+Rendered upload_templates/_table_top (0.1ms)
+  [4;35;1mPhone Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `phones`[0m
+Rendered upload_templates/_table_columns (6.3ms)
+Completed in 58ms (View: 7, DB: 42) | 200 OK [http://localhost/upload_templates/table_columns?table_name=Phone]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:26:22) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Home", "table_name"=>"Phone", "ttype_name"=>"PhoneType"}
+  [4;36;1mPhoneType Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `phone_types`[0m
+  [4;35;1mPhoneType Load (0.8ms)[0m   [0mSELECT * FROM `phone_types` WHERE (`phone_types`.`name` = 'Home') LIMIT 1[0m
+  [4;36;1mPhoneType Load (0.2ms)[0m   [0;1mSELECT * FROM `phone_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (3.0ms)
+Completed in 18ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:26:25) [POST]
+  Parameters: {"app_column"=>"name", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"phones"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.3ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=name&app_table=phones]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:26:42) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"68"}
+  [4;36;1mDataColumn Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 68) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 14 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 68) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.2ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:26:42', `data_type_id` = 1, `data_type_name` = 'Home', `app_column` = 'name', `app_table` = 'phones' WHERE `id` = 68[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.6ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (58.9ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_display_map (74.0ms)
+Completed in 90ms (View: 77, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/68]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:26:52) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"69"}
+  [4;35;1mDataColumn Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 69) [0m
+Rendered upload_templates/_column_form (3.5ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/69]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:26:59) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Cell", "table_name"=>"Phone", "ttype_name"=>"PhoneType"}
+  [4;35;1mPhoneType Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `phone_types`[0m
+  [4;36;1mPhoneType Load (0.2ms)[0m   [0;1mSELECT * FROM `phone_types` WHERE (`phone_types`.`name` = 'Cell') LIMIT 1[0m
+  [4;35;1mPhoneType Load (0.2ms)[0m   [0mSELECT * FROM `phone_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (3.0ms)
+Completed in 15ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:27:02) [POST]
+  Parameters: {"app_column"=>"name", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"phones"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=name&app_table=phones]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:27:06) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"69"}
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 69) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 15 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 69) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.2ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:27:06', `data_type_id` = 2, `data_type_name` = 'Cell', `app_column` = 'name', `app_table` = 'phones' WHERE `id` = 69[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.5ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (1.0ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (74.8ms)
+Completed in 91ms (View: 78, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/69]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:27:26) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"70"}
+  [4;36;1mDataColumn Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 70) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/map_input/70]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:27:31) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Work", "table_name"=>"Phone", "ttype_name"=>"PhoneType"}
+  [4;36;1mPhoneType Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `phone_types`[0m
+  [4;35;1mPhoneType Load (0.2ms)[0m   [0mSELECT * FROM `phone_types` WHERE (`phone_types`.`name` = 'Work') LIMIT 1[0m
+  [4;36;1mPhoneType Load (0.2ms)[0m   [0;1mSELECT * FROM `phone_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (3.1ms)
+Completed in 16ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:27:33) [POST]
+  Parameters: {"app_column"=>"name", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"phones"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 12ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=name&app_table=phones]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:27:35) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"70"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 70) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 16 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 70) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.2ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:27:35', `data_type_id` = 3, `data_type_name` = 'Work', `app_column` = 'name', `app_table` = 'phones' WHERE `id` = 70[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (1.0ms)
+Rendered upload_templates/_column_map (59.5ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (74.5ms)
+Completed in 91ms (View: 77, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/70]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:27:41) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"71"}
+  [4;35;1mDataColumn Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.6ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 71) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/71]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#table_columns (for 127.0.0.1 at 2010-09-20 13:27:46) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "table_name"=>"Email"}
+  [4;35;1mEmailType Load (32.6ms)[0m   [0mSELECT * FROM `email_types` ORDER BY name[0m
+  [4;36;1mEmailType Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `email_types`[0m
+Rendered upload_templates/_table_top (0.1ms)
+  [4;35;1mEmail Columns (12.2ms)[0m   [0mSHOW FIELDS FROM `emails`[0m
+Rendered upload_templates/_table_columns (16.7ms)
+Completed in 63ms (View: 6, DB: 47) | 200 OK [http://localhost/upload_templates/table_columns?table_name=Email]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:27:51) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Personal", "table_name"=>"Email", "ttype_name"=>"EmailType"}
+  [4;36;1mEmailType Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `email_types`[0m
+  [4;35;1mEmailType Load (0.2ms)[0m   [0mSELECT * FROM `email_types` WHERE (`email_types`.`name` = 'Personal') LIMIT 1[0m
+  [4;36;1mEmailType Load (0.2ms)[0m   [0;1mSELECT * FROM `email_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (2.9ms)
+Completed in 16ms (View: 5, DB: 2) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:27:53) [POST]
+  Parameters: {"app_column"=>"name", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"emails"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 72ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=name&app_table=emails]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:27:56) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"71"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 71) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDataColumn Load (0.2ms)[0m   [0mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 17 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 71) LIMIT 1[0m
+  [4;36;1mDataColumn Update (0.3ms)[0m   [0;1mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:27:56', `data_type_id` = 1, `data_type_name` = 'Personal', `app_column` = 'name', `app_table` = 'emails' WHERE `id` = 71[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.3ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_display_map (14.5ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/71]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_input (for 127.0.0.1 at 2010-09-20 13:27:59) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"72"}
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 72) [0m
+Rendered upload_templates/_column_form (3.4ms)
+Completed in 13ms (View: 5, DB: 3) | 200 OK [http://localhost/upload_templates/map_input/72]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#onchange_data_type_name (for 127.0.0.1 at 2010-09-20 13:28:09) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "data_type_name"=>"Work", "table_name"=>"Email", "ttype_name"=>"EmailType"}
+  [4;35;1mEmailType Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `email_types`[0m
+  [4;36;1mEmailType Load (0.3ms)[0m   [0;1mSELECT * FROM `email_types` WHERE (`email_types`.`name` = 'Work') LIMIT 1[0m
+  [4;35;1mEmailType Load (0.2ms)[0m   [0mSELECT * FROM `email_types` ORDER BY name[0m
+Rendered upload_templates/_table_top (0.1ms)
+Rendered upload_templates/_table_columns (2.8ms)
+Completed in 16ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/onchange_data_type_name]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_field (for 127.0.0.1 at 2010-09-20 13:28:11) [POST]
+  Parameters: {"app_column"=>"name", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "app_table"=>"emails"}
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_form (2.2ms)
+Completed in 13ms (View: 4, DB: 2) | 200 OK [http://localhost/upload_templates/map_field?app_column=name&app_table=emails]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_update (for 127.0.0.1 at 2010-09-20 13:28:13) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"72"}
+  [4;35;1mDataColumn Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mDataColumn Load (0.7ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.`id` = 72) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Load (0.2ms)[0m   [0;1mSELECT `data_columns`.id FROM `data_columns` WHERE (`data_columns`.`seq_no` = 18 AND `data_columns`.upload_template_id = 3 AND `data_columns`.id <> 72) LIMIT 1[0m
+  [4;35;1mDataColumn Update (0.2ms)[0m   [0mUPDATE `data_columns` SET `updated_at` = '2010-09-20 18:28:13', `data_type_id` = 2, `data_type_name` = 'Work', `app_column` = 'name', `app_table` = 'emails' WHERE `id` = 72[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.3ms)[0m   [0mSELECT * FROM `data_columns` WHERE (upload_template_id = 3) ORDER BY seq_no[0m
+Rendered upload_templates/_blank (0.1ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.9ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (15.0ms)
+Completed in 31ms (View: 18, DB: 4) | 200 OK [http://localhost/upload_templates/map_update/72]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#process_file (for 127.0.0.1 at 2010-09-20 13:28:24) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mPerson Load (0.3ms)[0m   [0;1mSELECT * FROM `persons` WHERE (person_number = 'test01') LIMIT 1[0m
+  [4;35;1mPerson Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `persons`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Update (0.3ms)[0m   [0mUPDATE `persons` SET `updated_at` = '2010-09-20 18:28:24', `first_name` = 'Firstone', `birth_date` = '1970-02-04' WHERE `id` = 1[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mAddress Load (0.3ms)[0m   [0mSELECT * FROM `addresses` WHERE (person_id = 1 AND address_type_id = 2) LIMIT 1[0m
+  [4;36;1mAddress Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `addresses`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.3ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 1 AND `addresses`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 1 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 1 AND `addresses`.id <> 2) LIMIT 1[0m
+  [4;35;1mAddress Update (0.2ms)[0m   [0mUPDATE `addresses` SET `updated_at` = '2010-09-20 18:28:24', `city` = 'Houson' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.4ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 1) LIMIT 1[0m
+  [4;36;1mPhone Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `phones`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.3ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 1 AND `phones`.id <> 1) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1111234567' AND `phones`.person_id = 1 AND `phones`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1112345678' AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 1 AND `phones`.id <> 3) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1113456789' AND `phones`.person_id = 1 AND `phones`.id <> 3) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.3ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 1 AND email_type_id = 1) LIMIT 1[0m
+  [4;36;1mEmail Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `emails`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 1 AND `emails`.id <> 1) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'ppp@personal.com' AND `emails`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 1 AND email_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 1 AND `emails`.id <> 2) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'wwww@work.com' AND `emails`.id <> 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;36;1mUploadTemplate Update (0.2ms)[0m   [0;1mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 18:28:24', `status` = '2' WHERE `id` = 3[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendered upload_templates/_display_msg (0.1ms)
+Completed in 141ms (View: 1, DB: 19) | 200 OK [http://localhost/upload_templates/process_file/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 13:28:28) [GET]
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 22ms (View: 11, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 13:28:37) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;35;1mDataColumn Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (4.4ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 90ms (View: 72, DB: 5) | 200 OK [http://localhost/upload_templates/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#edit (for 127.0.0.1 at 2010-09-20 14:03:09) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering upload_templates/edit
+Rendered upload_templates/_upload_form (1.9ms)
+Completed in 20ms (View: 8, DB: 3) | 200 OK [http://localhost/upload_templates/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#update (for 127.0.0.1 at 2010-09-20 14:03:26) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3", "upload_template"=>{"name"=>"Template Test 1", "document"=>#<File:/var/folders/uW/uWXbpvtfG10o14--wSx5H++++TI/-Tmp-/RackMultipart20100920-988-18msns0-0>, "document_cache"=>""}}
+  [4;36;1mUploadTemplate Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;36;1mUploadTemplate Update (0.3ms)[0m   [0;1mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 19:03:26', `status` = '0', `document` = 'test2.csv' WHERE `id` = 3[0m
+  [4;35;1mSQL (9.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;35;1mDataColumn Columns (7.0ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Redirected to http://localhost:3000/upload_templates/3
+Completed in 104ms (DB: 20) | 302 Found [http://localhost/upload_templates/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 14:03:26) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.2ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.5ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.4ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 29ms (View: 11, DB: 4) | 200 OK [http://localhost/upload_templates/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-20 14:03:34) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.7ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (0.1ms)
+  [4;35;1mDataColumn Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (4.3ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.6ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (1.0ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (77.7ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 103ms (View: 86, DB: 4) | 200 OK [http://localhost/upload_templates/map_data/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#process_file (for 127.0.0.1 at 2010-09-20 14:09:13) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3"}
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;36;1mDataColumn Load (0.4ms)[0m   [0;1mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;35;1mDataColumn Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `data_columns`[0m
+  [4;36;1mPerson Load (0.3ms)[0m   [0;1mSELECT * FROM `persons` WHERE (person_number = 'test01') LIMIT 1[0m
+  [4;35;1mPerson Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `persons`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Update (0.3ms)[0m   [0mUPDATE `persons` SET `updated_at` = '2010-09-20 19:09:13', `birth_date` = '0071-02-04' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mAddress Load (0.3ms)[0m   [0mSELECT * FROM `addresses` WHERE (person_id = 1 AND address_type_id = 2) LIMIT 1[0m
+  [4;36;1mAddress Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `addresses`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 1 AND `addresses`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 1 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 1 AND `addresses`.id <> 2) LIMIT 1[0m
+  [4;35;1mAddress Update (0.2ms)[0m   [0mUPDATE `addresses` SET `updated_at` = '2010-09-20 19:09:13', `city` = 'Houston' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 1) LIMIT 1[0m
+  [4;36;1mPhone Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `phones`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 1 AND `phones`.id <> 1) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1111234567' AND `phones`.person_id = 1 AND `phones`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '111234567' AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.3ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 1 AND `phones`.id <> 3) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1113456789' AND `phones`.person_id = 1 AND `phones`.id <> 3) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.3ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 1 AND email_type_id = 1) LIMIT 1[0m
+  [4;36;1mEmail Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `emails`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.3ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 1 AND `emails`.id <> 1) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'ppp@personal.com' AND `emails`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 1 AND email_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 1 AND `emails`.id <> 2) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'wwww@work.com' AND `emails`.id <> 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mPerson Load (0.2ms)[0m   [0;1mSELECT * FROM `persons` WHERE (person_number = 'test02') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPerson Update (0.2ms)[0m   [0;1mUPDATE `persons` SET `updated_at` = '2010-09-20 19:09:13', `first_name` = 'First2nd' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 2 AND address_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 2 AND `addresses`.id <> 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 2 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 2 AND `addresses`.id <> 4) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 2 AND `phones`.id <> 4) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '2221234567' AND `phones`.person_id = 2 AND `phones`.id <> 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 2) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '222234567' AND `phones`.person_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 2 AND `phones`.id <> 5) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '2223456789' AND `phones`.person_id = 2 AND `phones`.id <> 5) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 2 AND email_type_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 2 AND `emails`.id <> 3) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'p22@personal.com' AND `emails`.id <> 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT * FROM `emails` WHERE (person_id = 2 AND email_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 2 AND `emails`.id <> 4) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'w222@work.com' AND `emails`.id <> 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPerson Load (0.2ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test03') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 3 AND address_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 3 AND `addresses`.id <> 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 3 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 3 AND `addresses`.id <> 6) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 3 AND phone_type_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 3 AND `phones`.id <> 6) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '3331234567' AND `phones`.person_id = 3 AND `phones`.id <> 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 3 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 3) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '333234567' AND `phones`.person_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 3 AND phone_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 3 AND `phones`.id <> 7) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '3333456789' AND `phones`.person_id = 3 AND `phones`.id <> 7) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 3 AND email_type_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 3 AND `emails`.id <> 5) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'p33@personal.com' AND `emails`.id <> 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT * FROM `emails` WHERE (person_id = 3 AND email_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 3 AND `emails`.id <> 6) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'w333@work.com' AND `emails`.id <> 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;35;1mUploadTemplate Update (0.2ms)[0m   [0mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 19:09:13', `notes` = ' Phone update NOT successful:person_id = 1 AND phone_type_id = 2, enter 10 digits for phone number<br>Phone save NOT successful:person_id = 2 AND phone_type_id = 2, enter 10 digits for phone number<br>Phone save NOT successful:person_id = 3 AND phone_type_id = 2, enter 10 digits for phone number<br>', `no_errors` = 3, `status` = '2' WHERE `id` = 3[0m
+  [4;36;1mSQL (156.3ms)[0m   [0;1mCOMMIT[0m
+Rendered upload_templates/_display_msg (0.2ms)
+Completed in 355ms (View: 2, DB: 184) | 200 OK [http://localhost/upload_templates/process_file/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 14:21:22) [GET]
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 23ms (View: 12, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 14:21:27) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.7ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.4ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 29ms (View: 12, DB: 4) | 200 OK [http://localhost/upload_templates/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#edit (for 127.0.0.1 at 2010-09-20 14:23:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.7ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering upload_templates/edit
+Rendered upload_templates/_upload_form (1.9ms)
+Completed in 20ms (View: 8, DB: 3) | 200 OK [http://localhost/upload_templates/3/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#update (for 127.0.0.1 at 2010-09-20 14:23:44) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3", "upload_template"=>{"name"=>"Template Test 1", "document"=>#<File:/var/folders/uW/uWXbpvtfG10o14--wSx5H++++TI/-Tmp-/RackMultipart20100920-988-1ooif3o-0>, "document_cache"=>""}}
+  [4;35;1mUploadTemplate Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;35;1mUploadTemplate Update (0.3ms)[0m   [0mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 19:23:44', `notes` = ' ', `no_errors` = 0, `status` = '0' WHERE `id` = 3[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDataColumn Load (0.5ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Redirected to http://localhost:3000/upload_templates/3
+Completed in 31ms (DB: 6) | 302 Found [http://localhost/upload_templates/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 14:23:44) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.5ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 27ms (View: 11, DB: 4) | 200 OK [http://localhost/upload_templates/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#map_data (for 127.0.0.1 at 2010-09-20 14:23:49) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.7ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/map_data
+Rendered upload_templates/_blank (0.1ms)
+  [4;36;1mDataColumn Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_map (4.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.8ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_column_map (0.7ms)
+Rendered upload_templates/_display_map (19.7ms)
+Rendered upload_templates/_blank (0.1ms)
+Completed in 46ms (View: 28, DB: 5) | 200 OK [http://localhost/upload_templates/map_data/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#process_file (for 127.0.0.1 at 2010-09-20 14:23:56) [POST]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.7ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.5ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+  [4;36;1mDataColumn Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+  [4;35;1mPerson Load (0.3ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test01') LIMIT 1[0m
+  [4;36;1mPerson Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `persons`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mAddress Load (0.3ms)[0m   [0mSELECT * FROM `addresses` WHERE (person_id = 1 AND address_type_id = 2) LIMIT 1[0m
+  [4;36;1mAddress Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `addresses`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.3ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 1 AND `addresses`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 1 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 1 AND `addresses`.id <> 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.3ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 1) LIMIT 1[0m
+  [4;35;1mPhone Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `phones`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 1 AND `phones`.id <> 1) LIMIT 1[0m
+  [4;36;1mPhone Load (0.3ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1111234567' AND `phones`.person_id = 1 AND `phones`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '111234567' AND `phones`.person_id = 1 AND `phones`.id <> 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 1 AND phone_type_id = 3) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 1 AND `phones`.id <> 3) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '1113456789' AND `phones`.person_id = 1 AND `phones`.id <> 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mEmail Load (0.3ms)[0m   [0;1mSELECT * FROM `emails` WHERE (person_id = 1 AND email_type_id = 1) LIMIT 1[0m
+  [4;35;1mEmail Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `emails`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 1 AND `emails`.id <> 1) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'ppp@personal.com' AND `emails`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT * FROM `emails` WHERE (person_id = 1 AND email_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 1 AND `emails`.id <> 2) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'wwww@work.com' AND `emails`.id <> 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPerson Load (0.3ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test02') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 2 AND address_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 2 AND `addresses`.id <> 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 2 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 2 AND `addresses`.id <> 4) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 2 AND `phones`.id <> 4) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '2221234567' AND `phones`.person_id = 2 AND `phones`.id <> 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 2) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '222234567' AND `phones`.person_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 2 AND phone_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 2 AND `phones`.id <> 5) LIMIT 1[0m
+  [4;35;1mPhone Load (0.3ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '2223456789' AND `phones`.person_id = 2 AND `phones`.id <> 5) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 2 AND email_type_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 2 AND `emails`.id <> 3) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'p22@personal.com' AND `emails`.id <> 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT * FROM `emails` WHERE (person_id = 2 AND email_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 2 AND `emails`.id <> 4) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'w222@work.com' AND `emails`.id <> 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPerson Load (0.2ms)[0m   [0mSELECT * FROM `persons` WHERE (person_number = 'test03') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 3 AND address_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 2 AND `addresses`.person_id = 3 AND `addresses`.id <> 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM `addresses` WHERE (person_id = 3 AND address_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT `addresses`.id FROM `addresses` WHERE (`addresses`.`address_type_id` = 3 AND `addresses`.person_id = 3 AND `addresses`.id <> 6) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 3 AND phone_type_id = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 1 AND `phones`.person_id = 3 AND `phones`.id <> 6) LIMIT 1[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '3331234567' AND `phones`.person_id = 3 AND `phones`.id <> 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT * FROM `phones` WHERE (person_id = 3 AND phone_type_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPhone Load (0.1ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 2 AND `phones`.person_id = 3) LIMIT 1[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '333234567' AND `phones`.person_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+PROCESS_CHILD
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT * FROM `phones` WHERE (person_id = 3 AND phone_type_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPhone Load (0.2ms)[0m   [0;1mSELECT `phones`.id FROM `phones` WHERE (`phones`.`phone_type_id` = 3 AND `phones`.person_id = 3 AND `phones`.id <> 7) LIMIT 1[0m
+  [4;35;1mPhone Load (0.2ms)[0m   [0mSELECT `phones`.id FROM `phones` WHERE (`phones`.`name` = BINARY '3333456789' AND `phones`.person_id = 3 AND `phones`.id <> 7) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+PROCESS_CHILD
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT * FROM `emails` WHERE (person_id = 3 AND email_type_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 1 AND `emails`.person_id = 3 AND `emails`.id <> 5) LIMIT 1[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'p33@personal.com' AND `emails`.id <> 5) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+PROCESS_CHILD
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT * FROM `emails` WHERE (person_id = 3 AND email_type_id = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmail Load (0.2ms)[0m   [0;1mSELECT `emails`.id FROM `emails` WHERE (`emails`.`email_type_id` = 2 AND `emails`.person_id = 3 AND `emails`.id <> 6) LIMIT 1[0m
+  [4;35;1mEmail Load (0.2ms)[0m   [0mSELECT `emails`.id FROM `emails` WHERE (`emails`.`name` = BINARY 'w333@work.com' AND `emails`.id <> 6) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUploadTemplate Load (0.2ms)[0m   [0;1mSELECT `upload_templates`.id FROM `upload_templates` WHERE (`upload_templates`.`name` = BINARY 'Template Test 1' AND `upload_templates`.id <> 3) LIMIT 1[0m
+  [4;35;1mUploadTemplate Update (0.3ms)[0m   [0mUPDATE `upload_templates` SET `updated_at` = '2010-09-20 19:23:56', `notes` = ' Phone update NOT successful:person_id = 1 AND phone_type_id = 2, enter 10 digits for phone number<br>Phone save NOT successful:person_id = 2 AND phone_type_id = 2, enter 10 digits for phone number<br>Phone save NOT successful:person_id = 3 AND phone_type_id = 2, enter 10 digits for phone number<br>', `no_errors` = 3, `status` = '2' WHERE `id` = 3[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendered upload_templates/_display_msg (0.1ms)
+Completed in 198ms (View: 1, DB: 28) | 200 OK [http://localhost/upload_templates/process_file/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 14:30:01) [GET]
+  [4;35;1mUploadTemplate Load (0.3ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 87ms (View: 13, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#destroy (for 127.0.0.1 at 2010-09-20 14:30:17) [DELETE]
+  Parameters: {"authenticity_token"=>"NdHxDKlFkuJ8w6hcoZe6zsQzzEVvjEmfFuOV4LW02EY=", "id"=>"4"}
+  [4;35;1mUploadTemplate Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.6ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 4) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDataColumn Delete all (0.3ms)[0m   [0;1mDELETE FROM `data_columns` WHERE ((upload_template_id = 4)) [0m
+  [4;35;1mUploadTemplate Destroy (0.1ms)[0m   [0mDELETE FROM `upload_templates` WHERE `id` = 4[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/upload_templates
+Completed in 23ms (DB: 4) | 302 Found [http://localhost/upload_templates/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#index (for 127.0.0.1 at 2010-09-20 14:30:17) [GET]
+  [4;35;1mUploadTemplate Load (0.4ms)[0m   [0mSELECT * FROM `upload_templates` ORDER BY created_at[0m
+Rendering template within layouts/application
+Rendering upload_templates/index
+  [4;36;1mUploadTemplate Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `upload_templates`[0m
+Completed in 20ms (View: 9, DB: 2) | 200 OK [http://localhost/upload_templates]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UploadTemplatesController#show (for 127.0.0.1 at 2010-09-20 14:41:19) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUploadTemplate Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `upload_templates`[0m
+  [4;36;1mUploadTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `upload_templates` WHERE (`upload_templates`.`id` = 3) [0m
+  [4;35;1mDataColumn Load (0.4ms)[0m   [0mSELECT * FROM `data_columns` WHERE (`data_columns`.upload_template_id = 3) ORDER BY seq_no[0m
+Rendering template within layouts/application
+Rendering upload_templates/show
+  [4;36;1mDataColumn Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `data_columns`[0m
+Rendered upload_templates/_column_info (3.5ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Rendered upload_templates/_column_info (0.1ms)
+Completed in 29ms (View: 12, DB: 4) | 200 OK [http://localhost/upload_templates/3]
