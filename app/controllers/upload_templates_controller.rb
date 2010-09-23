@@ -20,7 +20,7 @@ class UploadTemplatesController < ApplicationController
     @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @upload_template }
     end
   end
@@ -422,7 +422,8 @@ class UploadTemplatesController < ApplicationController
     render :update do |page|
         @upload_msg = "File uploaded succesfully. Total #{row_count} rows. "
         (@upload_msg += "Total #{@upload_template.no_errors} errors.") if @upload_template.no_errors > 0
-        page.replace_html "map-row-info", :partial => "display_msg"       
+        page.replace_html "map-template-info", :partial => "template_info" 
+        page.replace_html "map-row-info", :partial => "display_msg"
     end 
 
   end

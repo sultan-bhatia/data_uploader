@@ -1,18 +1,13 @@
 <table width="100%">
+
+  <tr id="map-template-info">
+      <%= render :partial => "template_info" %>
+  </tr>
+
   <tr>
-    <td colspan=2 valign=top>
-      Template: <b><%=h @upload_template.name if @upload_template.name %></b>
-      | Input File: <b><%=h @upload_template.document.file.filename if @upload_template.document? %></b>
-      | Status: <b><%=h (@upload_template.status == "2")? "Processed" : "Not Processed Yet" %></b>
-      <% if @upload_template.status == "2" %>
-       | Process Date: <b><%=h @upload_template.updated_at if @upload_template.updated_at %></b>
-      <% end %>
-    </td>
-    <td colspan=1 valign=top align=center>
-      <% if @upload_template.status != "2" %>
-        <b><%= link_to_remote 'Process File', :url => {:action => "process_file", :id => @upload_template.id} %></b>&nbsp
-      <% end %>
-      &nbsp;&nbsp;<%= link_to 'Exit', :action => :index %>
+    <td colspan=3 valign=top>
+      <div id="map-template-info">
+      </div>
     </td>
   </tr>
 
