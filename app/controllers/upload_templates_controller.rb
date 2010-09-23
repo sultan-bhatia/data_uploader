@@ -477,23 +477,28 @@ class UploadTemplatesController < ApplicationController
     if @p_data
       begin
         @p_data.update_attributes(@datatables[@table_no])
+        raise if @p_data.errors.count > 0
       rescue
-        logger.info "#{@p_class.name} update NOT successful:" + @key
-        @p_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
-        @upload_template.notes += "#{@p_class.name} update NOT successful:" + @key + "<br>"
+        @upload_template.notes += "#{@p_class.name} update NOT successful:" + @key
+        if @p_data.errors.count > 0
+          @p_data.errors.each {|i, msg| @upload_template.notes += ", " + msg}
+        end
+        @upload_template.notes += "<br>"
         @key = false
       end
     else
       begin
         @p_data = @p_class.new(@datatables[@table_no])
         @p_data.save
-###        @p_data = @p_class.find(:first, :conditions => ["#{@key}"])
+        raise if @p_data.errors.count > 0
       rescue
-        logger.info "#{@p_class.name} save NOT successful:" + @key
-        @p_data.errors.each {|i| logger.info i}
         @upload_template.no_errors += 1
-        @upload_template.notes += "#{@p_class.name} save NOT successful:" + @key + "<br>"
+        @upload_template.notes += "#{@p_class.name} save NOT successful:" + @key
+        if @p_data.errors.count > 0
+          @p_data.errors.each {|i, msg| @upload_template.notes += ", " + msg}
+        end
+        @upload_template.notes += "<br>"
         @key = false
       end  
     end
@@ -502,7 +507,6 @@ class UploadTemplatesController < ApplicationController
 
 
   def process_child
-    logger.info "PROCESS_CHILD"
     class_name = "none"
     $TABLE_ARR.each {|t| class_name = t.name if (@tname.include? t.name.downcase)}
 

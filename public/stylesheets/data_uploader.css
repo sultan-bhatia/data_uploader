@@ -2,14 +2,12 @@ body {
   background: #e0e7d1;
   color: #333;
   padding: 0px 0px 0px 0px;
-/*  margin: 0px 0px 0px 0px; */
-  margin: 0px 220px 0px 230px;
+  margin: 0px 0px 0px 0px;
 }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-/*  font-size:   10pt; */
-  font-size:   7pt;
+  font-size:   10pt;
   line-height: 20px;
 }
 

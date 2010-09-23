@@ -11,6 +11,7 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :emails
   has_many :email_types, :through => :emails
   
-  validates_presence_of :last_name, :first_name, :message => "enter all required information"
+  validates_presence_of :last_name, :message => "last name is missing"
+  validates_presence_of :first_name, :message => "first name is missing"
 
 end
