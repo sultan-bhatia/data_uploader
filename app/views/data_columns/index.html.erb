@@ -31,13 +31,7 @@
     </td>
 
     <td width="200" valign=top>
-      <center><h3>Database Tables</h3></center>
-        <ul list-style-type="none">
-           <% $TABLE_ARR.each do |table| %>
-		     <% @t = table.name %>
-             <li><%= link_to_remote @t, :url => {:action => :table_columns, :table_name => @t} %></li>
-           <% end %>
-        </ul>
+        <%= render :partial => "database_tables/index" %>
     </td>
 
   </tr>

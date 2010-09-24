@@ -1,0 +1,33 @@
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DatabaseTablesController#show (for 127.0.0.1 at 2010-09-24 10:18:50) [POST]
+  Parameters: {"authenticity_token"=>"8YCVGko5PwXq58ls83/jRVX4/MIkLZaNOOeSsuCDpLY=", "table_name"=>"Person"}
+
+ActionView::TemplateError (Missing template database_tables/_table_top.erb in view path app/views) on line #5 of app/views/database_tables/_show.html.erb:
+2: <h3><%= @tname %> columns</h3>
+3: <%= image_tag 'loading.gif', :id=>'spinner', :style=>"display:none; float:right;" %>
+4:   <div id="columns-container">
+5:     <%= render :partial => "table_top" %>
+6:     <% for column in @table.column_names %>
+7:       <% if column == "updated_by" || column == "created_by" || column == "updated_at" || column == "created_at" %>
+8:       <% elsif column == "id" || column == "person_id" %>
+
+    app/views/database_tables/_show.html.erb:5
+    app/controllers/database_tables_controller.rb:23:in `show'
+    app/controllers/database_tables_controller.rb:22:in `show'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/sultanbhatia/.rvm/rubies/ruby-1.8.7-p249/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
