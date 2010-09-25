@@ -2,6 +2,8 @@ require 'csv'
 
 class UploadTemplatesController < ApplicationController
 
+  include FileColumnsHelper
+
   def index
 
     @upload_templates = UploadTemplate.find(:all, :order => "created_at")
@@ -43,7 +45,7 @@ class UploadTemplatesController < ApplicationController
   def create
 
     @upload_template = UploadTemplate.new(params[:upload_template])
-    if !@upload_template.save
+    unless @upload_template.save
       flash[:notice] = 'There was a problem with creating the template.'
       render :action => "new" and return
     end
@@ -77,7 +79,7 @@ class UploadTemplatesController < ApplicationController
     params[:upload_template][:status] = "0"
     params[:upload_template][:no_errors] = 0
     params[:upload_template][:notes] = " "
-    if !@upload_template.update_attributes(params[:upload_template])
+    unless @upload_template.update_attributes(params[:upload_template])
       flash[:notice] = 'There was a problem with updating the template.'
       render :action => "edit" and return
     end
@@ -85,7 +87,7 @@ class UploadTemplatesController < ApplicationController
     check_file
 
     if @upload_msg == nil
-      check_columns
+      update_columns
     end
 
     respond_to do |format|
@@ -111,6 +113,14 @@ class UploadTemplatesController < ApplicationController
       format.html { redirect_to(upload_templates_url) }
       format.xml  { head :ok }
     end
+
+  end
+
+
+  def view_file
+
+    doc = UploadTemplate.find(params[:id]).document.to_s
+    send_file(doc, :type => :text, :disposition => 'inline') and return
 
   end
 

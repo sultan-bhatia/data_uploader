@@ -1,0 +1,16 @@
+<% if data_map.input_column %>
+  <tr>
+    <td><%= data_map.seq_no %></td>
+    <td><%= data_map.input_column %></td>
+    <td><%= data_map.app_table %></td>
+    <td><%= data_map.app_column %>
+        <% if data_map.data_type_id %>
+          <br>type=<%= data_map.data_type_name if data_map.data_type_name %>
+        <% end %>
+        <% if data_map.data_year %>
+          <br>year=<%= data_map.data_year %>
+        <% end %>
+    </td>
+    <td><%= link_to_remote "map", :url => {:action => :edit_data_column, :id => data_map} %></td>
+  </tr>
+<% end %>

@@ -2,7 +2,14 @@
 <h3><%= @tname %> columns</h3>
 <%= image_tag 'loading.gif', :id=>'spinner', :style=>"display:none; float:right;" %>
   <div id="columns-container">
-    <%= render :partial => "table_top" %>
+<table border="1" cellspacing="0">
+  <tr>
+    <th>&nbsp; Description &nbsp;</th>
+    <th>&nbsp; Table &nbsp;</th>
+    <th>&nbsp; Column &nbsp;</th>
+    <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+  </tr>
+
     <% for column in @table.column_names %>
       <% if column == "updated_by" || column == "created_by" || column == "updated_at" || column == "created_at" %>
       <% elsif column == "id" || column == "person_id" %>
@@ -23,12 +30,12 @@
       <% elsif column == "name" %>
         <tr>
           <td>&nbsp; <%= session[:data_type_name] + " " + @table.name.humanize %> &nbsp;</td><td>&nbsp; <%= @tname %> &nbsp;</td><td>&nbsp; <%= column %> &nbsp;</td>
-          <td><%= link_to_remote "map", :url => {:action => "map_field", :app_table => @tname, :app_column => column} %></td>
+          <td><%= link_to_remote "map", :url => {:controller => :data_columns, :action => :map_field, :app_table => @tname, :app_column => column} %></td>
         </tr>
       <% else %>
         <tr>
           <td>&nbsp; <%= session[:data_type_name] + " " + column.humanize %> &nbsp;</td><td>&nbsp; <%= @tname %> &nbsp;</td><td>&nbsp; <%= column %> &nbsp;</td>
-          <td><%= link_to_remote "map", :url => {:action => "map_field", :app_table => @tname, :app_column => column} %></td>
+          <td><%= link_to_remote "map", :url => {:controller => :data_columns, :action => "map_field", :app_table => @tname, :app_column => column} %></td>
         </tr>
 	  <% end %>
     <% end %>

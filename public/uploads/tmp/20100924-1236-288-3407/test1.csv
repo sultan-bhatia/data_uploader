@@ -1,0 +1,2 @@
+person id number,first name,last name,sex,dob,home s1,home city,home state,home zip,work s1,work city,work state,work zip,home #,cell #,work #,email,work email
+test01,Firstone,Lastone,M,1970-02-04,111 Home Ln,Sugar Land,TX,77479,111 Work St,Houson,TX,77099,(111) 123-4567,111-234-5678,111-3456789,ppp@personal.com,wwww@work.com
