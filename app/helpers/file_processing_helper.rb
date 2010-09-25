@@ -1,16 +1,7 @@
-require 'csv'
-
-class XxxTemplatesController < ApplicationController
+module FileProcessingHelper
 
 
-
-  def process_file
-
-    @upload_template = UploadTemplate.find(params[:id])
-    @upload_template.status = "1"
-    @upload_template.no_errors = 0
-    @upload_template.notes = " "
-    @data_columns = @upload_template.data_columns.find(:all, :order => "seq_no")
+  def read_file_and_update_db
   
     @tablenames = []
     @attrtables = []
@@ -37,18 +28,8 @@ class XxxTemplatesController < ApplicationController
           process_data
         end
       end
-
-    @upload_template.status = "2"
-    if !@upload_template.save
-      logger.info "Upload status could not be set to '2'"
-    end
-
-    render :update do |page|
-        @upload_msg = "File uploaded succesfully. Total #{row_count} rows. "
-        (@upload_msg += "Total #{@upload_template.no_errors} errors.") if @upload_template.no_errors > 0
-        page.replace_html "map-template-info", :partial => "template_info" 
-        page.replace_html "map-row-info", :partial => "display_msg"
-    end 
+	  
+	  return row_count
 
   end
 

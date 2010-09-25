@@ -8,7 +8,7 @@
     </td>
     <td colspan=1 valign=top align=center>
       <% if @upload_template.status != "2" %>
-        <b><%= link_to_remote 'Process File', :url => {:action => "process_file", :id => @upload_template.id} %></b>&nbsp
+        <b><%= link_to_remote 'Process File', :url => {:controller => :upload_templates, :action => "process_file", :id => @upload_template.id} %></b>&nbsp
       <% else %>
         <%= link_to 'Show', :controller => :upload_templates, :action => :show, :id => @upload_template.id %>&nbsp
       <% end %>
