@@ -141,7 +141,7 @@ class UploadTemplatesController < ApplicationController
 	row_count = read_file_and_update_db
 		
     @upload_template.status = "2"
-    if !@upload_template.save
+    unless @upload_template.save
       logger.info "Upload status could not be set to '2'"
     end
 

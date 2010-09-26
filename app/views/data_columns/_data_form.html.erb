@@ -13,17 +13,11 @@
     <td><%= data_form.input_column %></td>
     <td><%= data_form.app_table %></td>
     <td><%= data_form.app_column %>
-        <% if data_form.data_type_id %>
-          <br>type=<%= data_form.data_type_name if data_form.data_type_name %>
-        <% end %>
-        <% if data_form.data_year %>
-          <br>year=<%= data_form.data_year %>
-        <% end %>
+        <%= "<br>type=#{data_form.data_type_name}" if data_form.data_type_name? %>
+        <%= "<br>year=#{data_form.data_year}" if data_form.data_year? %>
     </td>
-    <td><%= link_to_remote "update", :url => {:action => "map_update", :id => data_form} %></td>
-    <td><%= link_to_remote "cancel", :url => {:action => "map_cancel", :id => data_form} %></td>
-    <td><%= link_to_remote "remove", :url => {:action => "map_remove", :id => data_form} %></td>
+    <td><%= link_to_remote "update", :url => {:action => :map_update, :id => data_form} %></td>
+    <td><%= link_to_remote "cancel", :url => {:action => :map_cancel, :id => data_form} %></td>
+    <td><%= link_to_remote "remove", :url => {:action => :map_remove, :id => data_form} %></td>
   </tr>
 </table>
-
-

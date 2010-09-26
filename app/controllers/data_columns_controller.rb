@@ -64,7 +64,7 @@ class DataColumnsController < ApplicationController
     @data_form.data_type_name = session[:data_type_name]
     @data_form.data_type_id = session[:data_type_id]
     
-    if !@data_form.save
+    unless @data_form.save
       @upload_msg = "System Problem"
     end
 
@@ -107,7 +107,7 @@ class DataColumnsController < ApplicationController
     @data_form.app_column = "none"
     @data_form.data_type_id = nil
     @data_form.data_type_name = nil
-    if !@data_form.save
+    unless @data_form.save
       @upload_msg = "System problem"
     end
 
@@ -125,9 +125,6 @@ class DataColumnsController < ApplicationController
 
 
   end
-
-
-
 
 
 end

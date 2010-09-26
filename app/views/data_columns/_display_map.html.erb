@@ -4,9 +4,9 @@
     <th>Input Column</th>
     <th>Database Table</th>
     <th>Database Field</th>
-    <th> </th>
+	<%= "<th> </th>" if controller.controller_name == "data_columns" %>
   </tr>
   <div id="column-map">
-    <%= render :partial => "data_map", :collection => @data_columns %>
+    <%= render :partial => "data_columns/data_map", :collection => @data_columns %>
   </div>
 </table>

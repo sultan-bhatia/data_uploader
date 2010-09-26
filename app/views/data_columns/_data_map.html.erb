@@ -4,13 +4,9 @@
     <td><%= data_map.input_column %></td>
     <td><%= data_map.app_table %></td>
     <td><%= data_map.app_column %>
-        <% if data_map.data_type_id %>
-          <br>type=<%= data_map.data_type_name if data_map.data_type_name %>
-        <% end %>
-        <% if data_map.data_year %>
-          <br>year=<%= data_map.data_year %>
-        <% end %>
+		<%= "<br>type=#{data_map.data_type_name}" if data_map.data_type_name? %>
+        <%= "<br>year=#{data_map.data_year}" if data_map.data_year? %>
     </td>
-    <td><%= link_to_remote "map", :url => {:action => :edit_data_column, :id => data_map} %></td>
+    <%= "<td>#{link_to_remote "map", :url => {:action => :edit_data_column, :id => data_map}}</td>" if controller.controller_name == "data_columns" %>
   </tr>
 <% end %>

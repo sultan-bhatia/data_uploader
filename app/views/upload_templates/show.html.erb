@@ -10,17 +10,10 @@
   <% end %>
   <tr><th>Input File:</th><td><%=h @upload_template.document.file.filename if @upload_template.document? %></td></tr>
 </table>
-<table border="1" cellspacing="0">
-  <tr>
-    <th>Seq #</th>
-    <th>Input Column</th>
-    <th>Database Table</th>
-    <th>Database Field</th>
-  </tr>
-  <%= render :partial => "data_info", :collection => @data_columns %>
-</table>
+
+<%= render :partial => "data_columns/display_map" %>
 
 <br>
 <%= link_to 'Edit', edit_upload_template_path(@upload_template) %> |
 <%= link_to 'Back', upload_templates_path %> |
-<%= link_to 'Map Data', :controller => :data_columns, :action => "index", :id => @upload_template %></td>
+<%= link_to 'Map Data', :controller => :data_columns, :action => :index, :id => @upload_template %></td>

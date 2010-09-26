@@ -24,8 +24,8 @@
     <td>&nbsp;&nbsp;<%= link_to 'Show', upload_template %></td>
     <td>&nbsp;&nbsp;<%= link_to 'Edit', edit_upload_template_path(upload_template) %></td>
     <td>&nbsp;&nbsp;<%= link_to 'Delete Template', upload_template, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td>&nbsp;&nbsp;<%= link_to 'Map Data', :controller => :data_columns, :action => "index", :id => upload_template %></td>
-    <td>&nbsp;&nbsp;<%= link_to 'View File', :action => "view_file", :id => upload_template %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'Map Data', :controller => :data_columns, :action => :index, :id => upload_template %></td>
+    <td>&nbsp;&nbsp;<%= link_to 'View File', :action => :view_file, :id => upload_template %></td>
   </tr>
 <% end %>
 </table>

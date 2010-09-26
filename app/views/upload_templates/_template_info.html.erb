@@ -1,17 +1,6 @@
     <td colspan=2 valign=top>
-      Template: <b><%=h @upload_template.name if @upload_template.name %></b>
-      | Input File: <b><%=h @upload_template.document.file.filename if @upload_template.document? %></b>
-      | Status: <b><%=h (@upload_template.status == "2")? "Processed" : "Not Processed Yet" %></b>
-      <% if @upload_template.status == "2" %>
-       | Process Date: <b><%=h @upload_template.updated_at if @upload_template.updated_at %></b>
-      <% end %>
+      <%= template_info_data %>
     </td>
     <td colspan=1 valign=top align=center>
-      <% if @upload_template.status != "2" %>
-        <b><%= link_to_remote 'Process File', :url => {:controller => :upload_templates, :action => "process_file", :id => @upload_template.id} %></b>&nbsp
-      <% else %>
-        <%= link_to 'Show', :controller => :upload_templates, :action => :show, :id => @upload_template.id %>&nbsp
-      <% end %>
-      &nbsp;&nbsp;<%= link_to 'Exit', :controller => :upload_templates, :action => :index %>
-    </td>
-
+	  <%= template_info_options %>
+	</td>
