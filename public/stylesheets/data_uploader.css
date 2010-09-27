@@ -21,13 +21,12 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
-fieldset{
+fieldset {
   border:1px solid #FFFFFF;
   padding:10px;
 }
 
-.submit 
-{
+.submit {
   margin:10px 0px 0px 0px;
 } 
 
@@ -55,4 +54,37 @@ fieldset{
   border:1px solid #7F7F7F;
   padding:5px 15px 5px 15px;
   background:#EFF9FF;
+}
+
+.full-element {
+   position: relative;
+   left: 0px;
+   width: 100%;
+   height: auto;
+
+}
+
+.left-long-element {
+   position: relative;
+   left: 0px;
+   width: 75%;
+}
+
+.left-element {
+   position: absolute;
+   width: 45%;
+   left: 0px;
+}
+
+.center-element {
+   position: absolute;
+   right: 225px;
+   width: 35%;
+}
+
+.right-element {
+   position: absolute;
+   right: 25px;
+   width: 175px;
+   text-align: center;
 }

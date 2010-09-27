@@ -1,38 +1,28 @@
-<table width="100%">
+<div id="map-template-info">
+  <%= render :partial => "upload_templates/template_info" %>
+</div>
 
-  <tr id="map-template-info">
-      <%= render :partial => "upload_templates/template_info" %>
-  </tr>
+<hr>
 
-  <tr><td colspan=3 valign=top><hr></td></tr>
+<br>
+<div id="map-row-info" class="left-long-element">
+    <%= render :partial => "layouts/blank" %>
+</div
 
-  <tr>
-    <td colspan=3 valign=top>
-    <div id="map-row-info">
+<br>
+<div class="full-element">
+<hr>
+<br>
+  <span id="display-map" class="left-element">
+	  <%= render :partial => "display_map" %>
+  </span>
+
+  <span class="right-element">
+    <%= render :partial => "database_tables/index" %>
+  </span>
+
+  <span id="columns-info" class="center-element">
       <%= render :partial => "layouts/blank" %>
-    </div>
-    </td>
-  </tr>
+  </span>  
 
-  <tr><td colspan=3 valign=top><hr></td></tr>
-
-  <tr>
-    <td  valign=top>
-      <h3>Input File Columns</h3>
-      <div id="display-map">
-        <%= render :partial => "display_map" %>
-      </div>
-    </td>
-
-    <td  valign=top>
-      <div id="columns-info">
-        <%= render :partial => "layouts/blank" %>
-      </div>
-    </td>
-
-    <td width="200" valign=top>
-        <%= render :partial => "database_tables/index" %>
-    </td>
-
-  </tr>
-</table>
+</div>
