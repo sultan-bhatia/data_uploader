@@ -17,7 +17,7 @@
   <tr>
     <td><%= upload_template.name %>&nbsp;&nbsp;</td>
     <td><%= upload_template.document.file.filename %></td>
-    <td>&nbsp;&nbsp;<%= (upload_template.status == "2")? "Processed" : "Not Processed Yet" %></td>
+    <td>&nbsp;&nbsp;<%= status_name(upload_template.status) %></td>
     <td><% if upload_template.no_errors && upload_template.no_errors > 0  %>
           &nbsp;&nbsp;# of errors = <%= upload_template.no_errors %>
         <% end %></td>
