@@ -7,14 +7,16 @@ module FileProcessingHelper
     @attrtables = []
     table_no = -1
     @data_columns.each do |h|
-      t = h.app_table
-      t += h.data_type_name if h.data_type_name != " "
-      if !@tablenames.include? t
-        @tablenames << t
-        table_no += 1
-        @attrtables[table_no] = []
+      unless h.app_table == "none"
+        t = h.app_table
+        t += h.data_type_name unless h.data_type_name.blank?
+        if !@tablenames.include? t
+          @tablenames << t
+          table_no += 1
+          @attrtables[table_no] = []
+        end
+        @attrtables[table_no] << h.app_column
       end
-      @attrtables[table_no] << h.app_column
     end
 
       row_count = 0
