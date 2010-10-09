@@ -5,7 +5,7 @@
     <th>Input Column</th>
     <th>Database Table</th>
     <th>Database Field</th>
-	<%= "<th> </th>" if controller.controller_name == "data_columns" %>
+	<%= "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>" if controller.controller_name == "data_columns" %>
   </tr>
     <%= render :partial => "data_columns/data_map", :collection => @data_columns %>
 </table>

@@ -1,12 +1,20 @@
 <% if data_map.input_column %>
   <tr>
-    <td><%= data_map.seq_no %></td>
-    <td><%= data_map.input_column %></td>
-    <td><%= data_map.app_table %></td>
-    <td><%= data_map.app_column %>
-		<%= "<br>type=#{data_map.data_type_name}" if data_map.data_type_name? %>
-        <%= "<br>year=#{data_map.data_year}" if data_map.data_year? %>
+    <td>&nbsp;<%= data_map.seq_no %>&nbsp;</td>
+    <%= "<td id='seq-no-#{data_map.seq_no}' class='drop_element'>" %>&nbsp;<%= data_map.input_column %>&nbsp;</td>
+    <td>&nbsp;<%= data_map.app_table %>&nbsp;</td>
+    <td>&nbsp;<%= data_map.app_column %>&nbsp;
+		<%= "<br>&nbsp;type=#{data_map.data_type_name}&nbsp;" if data_map.data_type_name? %>
+        <%= "<br>&nbsp;year=#{data_map.data_year}&nbsp;" if data_map.data_year? %>
     </td>
-    <%= "<td>#{link_to_remote "map", :url => {:action => :edit_data_column, :id => data_map}}</td>" if controller.controller_name == "data_columns" %>
+    <%= "<td align='center'>#{link_to_remote "map", :url => {:action => :edit_data_column, :id => data_map}}</td>" if controller.controller_name == "data_columns" %>
   </tr>
+  <%= drop_receiving_element("seq-no-#{data_map.seq_no}", 
+        :accept => "drag_element",
+		:hoverclass => 'hover',
+		:complete   => "$('spinner').hide();",
+        :before     => "$('spinner').show();",
+		:with   => " 'db_column=' + element.id + '&seq_no=' + #{data_map.seq_no} ",
+		:url        => { :action => 'map_drop' }
+ 	) %>
 <% end %>

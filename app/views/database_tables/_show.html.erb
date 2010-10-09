@@ -1,18 +1,25 @@
 <% @tname = @table.name.pluralize.downcase %>
 <h3><%= @tname %> columns</h3>
-<%= image_tag 'loading.gif', :id=>'spinner', :style=>"display:none; float:right;" %>
-  <div id="columns-container">
-<table border="1" cellspacing="0">
-  <tr>
-    <th>&nbsp; Description &nbsp;</th>
-    <th>&nbsp; Table &nbsp;</th>
-    <th>&nbsp; Column &nbsp;</th>
-    <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-  </tr>
+<div id="columns-container">
+  <table border="1" cellspacing="0">
+    <tr>
+      <th>&nbsp; Description &nbsp;</th>
+      <th>&nbsp; Table &nbsp;</th>
+      <th>&nbsp; Column &nbsp;</th>
+      <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+    </tr>
 
     <% for column in @table.column_names %>
 	  <%= format_row(column) unless format_row(column) == "" %>
     <% end %>
-
-    </table>
+  </table>
+  <div class="comments">
+    There are two ways to do the mapping, to link a database column to a input column:<br>
+	1. Drag the <span class='drag_element'>database column</span> to the <span class='drop_element'>input column</span>.<br>
+	2. Click the <u>map</u> link for the input column, then click the <u>map</u><br>
+	   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;link for the database column.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Click the <u>update</u> link to complete the mapping.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Click the <u>cancel</u> link for no further action.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Click the <u>remove</u> link to undo the mapping.
   </div>
+</div>

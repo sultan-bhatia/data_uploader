@@ -3,7 +3,6 @@
 </div>
 
 <hr>
-
 <br>
 <div id="map-row-info" class="left-long-element">
     <%= render :partial => "layouts/blank" %>
@@ -12,6 +11,7 @@
 <br>
 <div class="full-element">
 <hr>
+<%= image_tag 'loading.gif', :id=>'spinner', :style=>"display:none; float:center;" %>
 <br>
   <span id="display-map" class="left-element">
 	  <%= render :partial => "display_map" %>
